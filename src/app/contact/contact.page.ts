@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: 'contact.page.html',
   styleUrls: ['contact.page.scss']
 })
-export class ContactPage {}
+export class ContactPage {
+  name = 'Classement';
+}

@@ -1,23 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Contact
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title color="light">{{name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>
-        Follow us on Twitter
-      </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>
-        <ion-icon name="logo-ionic" slot="start"></ion-icon>
-        @ionicframework
-      </ion-label>
-    </ion-item>
-  </ion-list>
+<ion-content class="animated">
+  <ion-card mode="ios">
+    <ion-card-header>
+      <ion-card-subtitle>Page {{name}}</ion-card-subtitle>
+      <ion-card-title>{{name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      ceci est la page {{name}}
+    </ion-card-content>
+  </ion-card>
 </ion-content>

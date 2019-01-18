@@ -1,0 +1,57 @@
+ion-slide {
+    height: 100vh;
+    flex-direction: column;
+}
+
+ion-button {
+    position: absolute;
+    bottom: 10vh;
+}
+
+// .finishBtnWrapper {
+//     position: absolute;
+//     bottom: 2vh;
+//     width: 96vw;
+//     margin-left: 2vw;
+//     padding: Opx;
+// }
+
+
+.btn-text-color {
+    color: var(--ion-color-light);
+}
+
+// .img-wrapper {
+//     position: fixed;
+// }
+
+// ion-img {
+//     z-index: 99;
+//     position: fixed;
+//     margin: auto;
+//     width: 50%;
+// }
+
+p {
+    padding: 1em;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.step-one {
+    background: var(--ion-color-light);
+    color: var(--ion-color-primary-contrast);
+}
+
+.step-two {
+    background: var(--ion-color-light);
+    color: var(--ion-color-secondary-contrast);
+}
+
+.step-three {
+    background: var(--ion-color-light);
+    color: var(--ion-color-primary-contrast);
+}
+

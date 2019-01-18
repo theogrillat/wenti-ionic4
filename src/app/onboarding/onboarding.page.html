@@ -1,0 +1,28 @@
+<!-- <ion-img [src]="logoPath"></ion-img> -->
+<ion-slides pager="true" #slides>
+  <ion-slide class="step-one">
+      
+    <h1>Wenti</h1>
+    <ion-button shape="round" mode="ios" size="large" color="primary" (click)="slides.slideNext()"><span class="btn-text-color">Suivant</span></ion-button>
+  </ion-slide>
+  <ion-slide class="step-two">
+    <h1>Jouer</h1>
+    <ion-row justify-content-center>
+      <ion-col text-left size="10">
+          <h3>Répondez à des Quizs de culture général rapide et passionant avec les personnes autour de vous.</h3>
+      </ion-col>
+    </ion-row>
+    <ion-button shape="round" mode="ios" size="large" color="primary" (click)="slides.slideNext()"><span class="btn-text-color">Suivant</span></ion-button>
+  </ion-slide>
+  <ion-slide class="step-three">
+    <h1>Gagner</h1>
+    <ion-row justify-content-center>
+        <ion-col text-left size="10">
+            <h3>Battez vos adversaires au score pour montrer votre expertise absolue, tout en accumulant des points.</h3>
+        </ion-col>
+      </ion-row>
+            <ion-button class="finishBtn" shape="round" mode="ios" size="large" color="secondary" (click)="finish()"><span class="btn-text-color">C'est parti !</span></ion-button>
+      
+    
+  </ion-slide>
+</ion-slides>

@@ -1,0 +1,7 @@
+
+    <app-login></app-login>
+    <div class="animated">
+        <button *ngIf="auth.user$ | async" class="btn primary block" (click)="go()">
+            <h1>GO</h1>
+          </button>
+    </div>

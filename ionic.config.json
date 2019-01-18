@@ -1,6 +1,8 @@
 {
   "name": "wenti-ionic4",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "9ab1cafd"
 }

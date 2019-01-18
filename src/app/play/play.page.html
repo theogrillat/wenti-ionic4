@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title color="light">{{name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="animated" mode="ios">
+    <ion-card-header>
+      <ion-card-subtitle>Page {{name}}</ion-card-subtitle>
+      <ion-card-title>{{name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      ceci est la page {{name}}
+    </ion-card-content>
+    <ion-card-content>
+      Points: {{ userData.points || 0 }}<br>
+      Parties: {{ userData.playNbr || 0 }}<br>
+      Victoires: {{ userData.winNbr || 0 }}<br>
+      Cash gagné: {{ userData.cashWinNbr || 0 }}<br>
+      medals gagné: {{ userData.medals || 0 }}<br>
+       
+    </ion-card-content>
+    <ion-card-content padding>
+        <button class="btn primary side" (click)="updatePoints(true)">
+          <h1>Ajouter {{ addPoints }} points</h1>
+        </button>
+        <button class="btn secondary side" (click)="updatePoints(false)">
+          <h1>Retirer {{ addPoints }} points</h1>
+        </button>
+    </ion-card-content>
+    <ion-card-content padding>
+        <button class="btn primary side" (click)="updatePlay(true)">
+          <h1>Ajouter {{ addPlay }} play</h1>
+        </button>
+        <button class="btn secondary side" (click)="updatePlay(false)">
+          <h1>Retirer {{ addPlay }} play</h1>
+        </button>
+    </ion-card-content>
+    <ion-card-content padding>
+        <button class="btn primary side" (click)="updateWin(true)">
+          <h1>Ajouter {{ addWin }} win</h1>
+        </button>
+        <button class="btn secondary side" (click)="updateWin(false)">
+          <h1>Retirer {{ addWin }} win</h1>
+        </button>
+    </ion-card-content>
+    <ion-card-content padding>
+        <button class="btn primary side" (click)="updateCash(true)">
+          <h1>Ajouter {{ addCashWin }} cash</h1>
+        </button>
+        <button class="btn secondary side" (click)="updateCash(false)">
+          <h1>Retirer {{ addCashWin }} cash</h1>
+        </button>
+    </ion-card-content>
+    <ion-card-content padding>
+      <button class="btn primary side" (click)="updateMedals(true)">
+        <h1>Ajouter {{ addMedals }} Medals</h1>
+      </button>
+      <button class="btn secondary side" (click)="updateMedals(false)">
+        <h1>Retirer {{ addMedals }} Medals</h1>
+      </button>
+  </ion-card-content>
+        
+  </ion-card>
+</ion-content>

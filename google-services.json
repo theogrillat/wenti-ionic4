@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "117074363015",
+    "firebase_url": "https://wenti-ionic4.firebaseio.com",
+    "project_id": "wenti-ionic4",
+    "storage_bucket": "wenti-ionic4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117074363015:android:3cb007ac35831e58",
+        "android_client_info": {
+          "package_name": "fr.wenti.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117074363015-libku2f828sh3j6o1g3j0pfd9kmhh8p8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.wenti.app",
+            "certificate_hash": "f9dfad6530a8e5310a37490ddbac5d4bde8e3572"
+          }
+        },
+        {
+          "client_id": "117074363015-atg5arks4oc0uuj7418vqjqqfsadaqun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOcrWrma7jLEL30VFkmIa7txvmQM3Xdno"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "117074363015-atg5arks4oc0uuj7418vqjqqfsadaqun.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "117074363015-ot1b5iemogqanh30tal4i4ei7ej8hjon.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "fr.wenti.app"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

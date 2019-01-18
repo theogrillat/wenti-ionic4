@@ -9,3 +9,138 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+@font-face {
+    font-family: Montserrat;
+    src: url('./assets/fonts/montserrat.woff2');
+}
+
+@font-face {
+    font-family: RobotoLight;
+    src: url('./assets/fonts/roboto-light.woff2');
+}
+
+@font-face {
+    font-family: RobotoRegular;
+    src: url('./assets/fonts/roboto-regular.woff2');
+}
+
+@font-face {
+    font-family: RobotoBlack;
+    src: url('./assets/fonts/roboto-black.woff2');
+}
+
+h1, h2, h3 {
+    font-family: RobotoBlack;
+}
+
+h4, h5, h6 {
+    font-family: RobotoLight;
+}
+
+
+
+.ion-card-low-padding-left {
+    height: 80px;
+    margin-left: 5px !important;
+    margin-right: 2px !important;
+}
+
+.ion-card-low-padding-right {
+    height: 80px;
+    margin-left: 2px !important;
+    margin-right: 5px !important;
+}
+
+.flex-row {
+    width: 100%;
+    justify-content: center;
+    display: inline-flex;
+    & h1, h2, h3, h4, h5, h6 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.flex-item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+}
+
+.sep-right {
+    border-right: 1px solid #5f5f5f;
+}
+
+.btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 45px;
+    border-radius: 100px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    &.secondary {
+        background-color: #FFA845;
+    }
+    &.primary {
+        background-color: #67D3B9;
+    }
+    &.block {
+        width: 80%;
+        margin-left: 10%;
+        display: block;
+        &.full {
+            width: 100%;
+            margin-left: 0%;
+        }
+    }
+    &.side {
+        & h1 {
+            font-size: 1em;
+        }
+        width: 48%;
+        margin: 1%;
+        display: inline;
+    }
+    & h1 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-size: 2em;
+        color: #ffffff;
+    }
+}
+.spec-title {
+    color: #5f5f5f;
+    font-weight: 100;
+}
+
+// @keyframes opac {
+//     from {
+//         transform: scale(0.95);
+//         opacity: 0;
+//     } 
+//     to {
+//         transform: scale(1);
+//         opacity: 1;
+//     }
+// }
+
+@keyframes opac {
+    from {
+        box-shadow: 0 0px 16px rgba(0,0,0,0);
+        opacity: 0;
+    } 
+    to {
+        box-shadow: 0 4px 16px rgba(0,0,0,.12);
+        opacity: 1;
+    }
+}
+
+.animated {
+    animation-name: opac;
+    animation-duration: 800ms;
+    animation-timing-function: cubic-bezier(.24,.11,.23,1);
+}

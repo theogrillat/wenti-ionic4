@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { HomePage } from './home.page';
   imports: [
     IonicModule,
     CommonModule,
+    SharedModule,
     FormsModule,
     RouterModule.forChild([{ path: '', component: HomePage }])
   ],

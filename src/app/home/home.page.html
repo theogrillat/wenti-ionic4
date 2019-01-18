@@ -1,10 +1,64 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title color="light">{{pageName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+<ion-content *ngIf="home">
+  <!-- <app-profile [user]="auth.user$ | async"></app-profile> -->
+  <div class="grid">
+    <img src="{{ userData.photoURL }}" class="imgg animated">
+    <div class="card animated">
+      <h1 class="name">{{ userData.displayName || 'Utilisateur mystere...' }}</h1>
+      <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Points</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.points || 0 }}</h1>
+        </div>
+      </div>
+      <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Nombre de parties</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.playNbr || 0 }}</h1>
+        </div>
+      </div>
+      <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Nombre de medailles</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.medal || 0 }}</h1>
+        </div>
+      </div>
+      <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Nombre de victoires</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.winNbr || 0 }}</h1>
+        </div>
+      </div>
+      <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Argent<br>gagné</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.cashWinNbr || 0 }} €</h1>
+        </div>
+      </div>
+      <button class="btn primary block" (click)="goSettings()">
+        <h1>Plus</h1>
+      </button>
+    </div>
+  </div>
+</ion-content>
+
+<ion-content *ngIf="!home">
+  <button class="btn primary block" (click)="goBack()">Back</button>
+  <button class="btn secondary block" (click)="signOut()">Se déconnecter</button>
+  <!-- <a [routerLink]="['/signin']"></a> -->
 </ion-content>

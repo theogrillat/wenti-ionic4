@@ -1,0 +1,21 @@
+<ion-grid padding>
+  <ion-row>
+    <ion-col padding size="12">
+      <h1 text-center>Connection</h1>
+    </ion-col>
+  </ion-row>
+  <ion-row justify-content-center>
+    <ion-col padding size="8">
+      <ion-button shape="round" mode="ios" size="large" color="danger" expand="full" (click)="auth.googleLogin()">
+        Google
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row justify-content-center>
+    <ion-col padding size="8">
+      <ion-button shape="round" mode="ios" size="large" color="fb" expand="full" (click)="auth.facebookLogin()">
+        Facebook
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

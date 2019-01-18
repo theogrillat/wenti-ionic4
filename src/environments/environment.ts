@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDfi6WLdMStvegTYpoKcL8T3bh-84tWRG8',
+    authDomain: 'wenti-ionic4.firebaseapp.com',
+    databaseURL: 'https://wenti-ionic4.firebaseio.com',
+    projectId: 'wenti-ionic4',
+    storageBucket: 'wenti-ionic4.appspot.com',
+    messagingSenderId: '117074363015'
+  }
 };
 
 /*
