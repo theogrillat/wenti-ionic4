@@ -3,7 +3,7 @@
     <name>Wenti</name>
     <description>Wenti</description>
     <author email="info@theogrillat.fr" href="https://theogrillat.fr/">Theo Grillat</author>
-    <content original-src="index.html" src="http://10.208.1.65:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -100,7 +100,6 @@
         <variable name="APP_NAME" value="Wenti" />
         <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.38.1" />
     </plugin>
-    <allow-navigation href="http://10.208.1.65:8100" sessionid="f542a76b" />
     <engine name="android" spec="7.1.4" />
     <engine name="ios" spec="4.5.5" />
 </widget>

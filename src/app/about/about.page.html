@@ -9,10 +9,15 @@
     <ion-card-header>
       <ion-card-subtitle>Page {{name}}</ion-card-subtitle>
       <ion-card-title>{{name}}</ion-card-title>
+      <ion-card-title>{{latitude}}</ion-card-title>
+      <ion-card-title>{{longitude}}</ion-card-title>
     </ion-card-header>
   
     <ion-card-content>
       ceci est la page {{name}}
+      <button class="btn primary block" (click)="getCoords()">
+        <h1>Get coords</h1>
+      </button>
     </ion-card-content>
   </ion-card>
 </ion-content>
