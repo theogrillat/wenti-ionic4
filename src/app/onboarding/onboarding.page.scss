@@ -1,9 +1,9 @@
-ion-slide {
+ion-slides {
     height: 100vh;
-    flex-direction: column;
+    // flex-direction: column;
 }
 
-ion-button {
+button {
     position: absolute;
     bottom: 10vh;
 }
@@ -21,6 +21,7 @@ ion-button {
     color: var(--ion-color-light);
 }
 
+
 // .img-wrapper {
 //     position: fixed;
 // }
@@ -36,22 +37,32 @@ p {
     padding: 1em;
 }
 
-h1 {
+.title {
     font-size: 3rem;
 }
 
-.step-one {
-    background: var(--ion-color-light);
-    color: var(--ion-color-primary-contrast);
+.logo {
+    width: 80px;
+    // position: absolute;
 }
 
-.step-two {
-    background: var(--ion-color-light);
-    color: var(--ion-color-secondary-contrast);
-}
+// .step-one {
+//     background: var(--ion-color-light);
+//     color: var(--ion-color-primary-contrast);
+// }
 
-.step-three {
-    background: var(--ion-color-light);
-    color: var(--ion-color-primary-contrast);
-}
+// .step-two {
+//     background: var(--ion-color-light);
+//     color: var(--ion-color-secondary-contrast);
+// }
 
+// .step-three {
+//     background: var(--ion-color-light);
+//     color: var(--ion-color-primary-contrast);
+// }
+
+.bgon {
+    background-image: url('../../assets/img/bgimg.jpg');
+    background-position: left;
+    background-size: contain;
+}

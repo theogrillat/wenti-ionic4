@@ -1,7 +1,34 @@
-
-    <app-login></app-login>
-    <div class="animated">
-        <button *ngIf="auth.user$ | async" class="btn primary block" (click)="go()">
-            <h1>GO</h1>
-          </button>
+<div class="animated">
+    <div *ngIf="isLogging" class="loading">
+        <h1>Chargement..</h1>
     </div>
+</div>
+
+<div class="grid-btn">
+    <ion-grid padding>
+        <ion-row>
+            <ion-col padding size="12">
+                <h1 text-center>Connection</h1>
+            </ion-col>
+        </ion-row>
+        <ion-row justify-content-center>
+            <ion-col padding size="8">
+                <ion-button shape="round" mode="ios" size="large" color="danger" expand="full" (click)="google()">
+                    Google
+                </ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-row justify-content-center>
+            <ion-col padding size="8">
+                <ion-button shape="round" mode="ios" size="large" color="fb" expand="full" (click)="facebook()">
+                    Facebook
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</div>
+
+
+<!-- <button class="btn primary block" (click)="gogo()">
+        <h1>GO</h1>
+</button> -->

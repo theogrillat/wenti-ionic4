@@ -28,6 +28,23 @@
     padding-right: 20px;
 }
 
+.card-full {
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    z-index: 50;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 4%;
+    padding: 2%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.btn-more {
+    margin: 4% auto 4% auto !important;
+}
+
 .imgg {
     box-shadow: 0 4px 16px rgba(0,0,0,.12);
     width: 100%;
@@ -51,4 +68,58 @@
 .spec {
     margin-top: 8%;
     height: 10%;
+}
+
+
+
+
+
+.input-group {
+    font-size: 2em;
+    position: relative;
+    padding-top: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.input-group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.input-group input {
+    border: none;
+    border-bottom: solid 1px #ccc;
+    width: 100%;
+    padding: 10px 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #20cfb8;
+    box-shadow: 0 1px 0 0 #20cfb8;
+}
+
+.input-group label {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    color: #aaa;
+    font-weight: 300;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.input-group label:hover {
+    cursor: text;
+}
+
+.input-group input:focus + label {
+    color: #20cfb8;
+}
+
+.input-group input:focus + label,
+.input-group input.active + label {
+    transform: translateY(-30px);
 }

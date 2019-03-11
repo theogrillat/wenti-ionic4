@@ -4,12 +4,59 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-content *ngIf="!home">
+    <div>
+          <div class="card-full animated" *ngIf="!schoolForm">
+            <button class="btn primary btn-more block" (click)="goBack()">
+              <h1>Back</h1>
+            </button>
+            <button class="btn secondary btn-more block" (click)="signOut()">
+              <h1>Se déconnecter</h1>
+            </button>
+            <button class="btn primary btn-more block" (click)="addSchool(true)">
+              <h1>Ajouter une ecole</h1>
+            </button>
+          </div>
+          <div class="card-full animated" *ngIf="schoolForm">
+            <div *ngIf="!userData.hasSchool">
+              <h1>Entrez une école</h1>
+              <ion-item>
+                  <ion-label>Ecole :</ion-label>
+                  <ion-select [(ngModel)]="schoolFinal" value="choose" okText="Okay" cancelText="Dismiss">
+                    <ion-select-option value="choose">Choisir une école</ion-select-option>
+                    <ion-select-option *ngFor="let school of schools" value="{{ school.name }}">{{ school.name }}</ion-select-option>
+                  </ion-select>
+              </ion-item>
+              <!-- <input class="input-school" > -->
+              <!-- <div class="input-group">
+                  <input type="text" id="first" [(ngModel)]="schoolInput" class="m-input">
+                  <label for="first">Nom de l'ecole</label>
+              </div> -->
+              <button class="btn primary block" (click)="validate()">
+                <h1>Ajouter cette école</h1>
+              </button>
+            </div>
+            <div *ngIf="userData.hasSchool">
+              <h1>Tu as deja une ecole d'enregistrer !</h1>
+            </div>
+            <button class="btn secondary block" (click)="addSchool(false)">
+              <h1>Retour</h1>
+            </button>
+
+            
+          </div>
+        <!-- <a [routerLink]="['/signin']"></a> -->
+      </div>
+</ion-content>
+
 <ion-content *ngIf="home">
+  
   <!-- <app-profile [user]="auth.user$ | async"></app-profile> -->
   <div class="grid">
     <img src="{{ userData.photoURL }}" class="imgg animated">
     <div class="card animated">
       <h1 class="name">{{ userData.displayName || 'Utilisateur mystere...' }}</h1>
+      <!-- <h1 class="name">Theo</h1> -->
       <div class="spec flex-row">
         <div class="flex-item sep-right">
           <h5 class="spec-title">Points</h5>
@@ -31,7 +78,7 @@
           <h5 class="spec-title">Nombre de medailles</h5>
         </div>
         <div class="flex-item">
-          <h1>{{ userData.medal || 0 }}</h1>
+          <h1>{{ userData.medals || 0 }}</h1>
         </div>
       </div>
       <div class="spec flex-row">
@@ -55,10 +102,8 @@
       </button>
     </div>
   </div>
+
+  
+
 </ion-content>
 
-<ion-content *ngIf="!home">
-  <button class="btn primary block" (click)="goBack()">Back</button>
-  <button class="btn secondary block" (click)="signOut()">Se déconnecter</button>
-  <!-- <a [routerLink]="['/signin']"></a> -->
-</ion-content>

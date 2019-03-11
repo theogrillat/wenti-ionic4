@@ -12,6 +12,7 @@ export class AboutPage {
   name = 'Infos';
   latitude = 0;
   longitude = 0;
+  accur = 0;
 
   constructor(private geolocation: Geolocation, private iab: InAppBrowser) { }
 
@@ -22,6 +23,7 @@ export class AboutPage {
       this.latitude = resp.coords.latitude;
       console.log(resp.coords.longitude);
       this.longitude = resp.coords.longitude;
+      this.accur = resp.coords.accuracy;
      }).catch((error) => {
        console.log('Error getting location', error);
      });

@@ -1,0 +1,35 @@
+
+
+.text-btn-color {
+    color: white;
+}
+
+.ion-color-fb {
+    --ion-color-base: #3B5998;
+    --ion-color-base-rgb: 59,89,152;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 255,255,255;
+    --ion-color-shade: #344e86;
+    --ion-color-tint: #4f6aa2;
+}
+
+.loading {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.9);
+    & h1 {
+        text-align: center;
+        color: #ffffff;
+        margin-top: 47vh;
+        font-size: 2em;
+    }
+}
+
+.grid-btn {
+    padding-top: 27vh;
+    position: absolute;
+    width: 100vw;
+    z-index: 1;
+}
