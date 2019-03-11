@@ -30,7 +30,7 @@ export class SigninPage implements OnDestroy {
     console.log('google');
     this.disposeMe = this.auth.user$.subscribe(val => {
       if (val) {
-        console.log('gogogoggoogogo');
+        // console.log('gogogoggoogogo');
         this.go();
       } else {
         console.error('failed');
@@ -39,14 +39,19 @@ export class SigninPage implements OnDestroy {
     // console.log(await this.user);
   }
 
-  gooogle() {
-    this.isLogging = true;
-  }
 
   facebook() {
     this.isLogging = true;
     this.auth.facebookLogin();
     console.log('facebook');
+    this.disposeMe = this.auth.user$.subscribe(val => {
+      if (val) {
+        // console.log('gogogoggoogogo');
+        this.go();
+      } else {
+        console.error('failed');
+      }
+    });
   }
 
   go() {
