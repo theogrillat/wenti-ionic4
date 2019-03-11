@@ -4,7 +4,10 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="!home">
+
+
+
+<div class="bgon" *ngIf="!home">
     <div>
           <div class="card-full animated" *ngIf="!schoolForm">
             <button class="btn primary btn-more block" (click)="goBack()">
@@ -47,9 +50,9 @@
           </div>
         <!-- <a [routerLink]="['/signin']"></a> -->
       </div>
-</ion-content>
+</div>
 
-<ion-content *ngIf="home">
+<div class="bgon" *ngIf="home">
   
   <!-- <app-profile [user]="auth.user$ | async"></app-profile> -->
   <div class="grid">
@@ -67,7 +70,7 @@
       </div>
       <div class="spec flex-row">
         <div class="flex-item sep-right">
-          <h5 class="spec-title">Nombre de parties</h5>
+          <h5 class="spec-title">Nombre de<br>parties</h5>
         </div>
         <div class="flex-item">
           <h1>{{ userData.playNbr || 0 }}</h1>
@@ -97,7 +100,7 @@
           <h1>{{ userData.cashWinNbr || 0 }} €</h1>
         </div>
       </div>
-      <button class="btn primary block" (click)="goSettings()">
+      <button class="plusProfile btn primary block" (click)="goSettings()">
         <h1>Plus</h1>
       </button>
     </div>
@@ -105,5 +108,6 @@
 
   
 
-</ion-content>
+</div>
+
 

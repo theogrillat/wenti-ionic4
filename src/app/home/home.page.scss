@@ -1,3 +1,14 @@
+.bgon {
+    width: 100%;
+    height: calc(100% - 56px);
+}
+
+
+
+.plusProfile {
+    margin-top: 8%;
+}
+
 .img {
     margin-top: 2vh;
     border-radius: 100px;
@@ -14,7 +25,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 4% 56% 30% 6% 4%;
-    grid-template-rows: 2% 4% 30vw auto;
+    grid-template-rows: 2% 4% 30vw auto 2%;
 }
 
 .card {
@@ -22,7 +33,7 @@
     z-index: 50;
     grid-column: 2 / 4;
     grid-row: 3 / 5;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.6);
     border-radius: 8px;
     padding-left: 20px;
     padding-right: 20px;
@@ -35,7 +46,7 @@
     margin-right: 4%;
     margin-top: 4%;
     padding: 2%;
-    background-color: #ffffff;
+    // background-color: #ffffff;
     border-radius: 8px;
     padding-left: 20px;
     padding-right: 20px;
@@ -52,7 +63,7 @@
     height: calc(width);
     grid-column: 3 / 5;
     grid-row: 2 / 4;
-    background-color: #ffffff;
+    // background-color: #ffffff;
     border-radius: 8px;
 }
 

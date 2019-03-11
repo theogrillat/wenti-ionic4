@@ -10,9 +10,9 @@ import { AuthService } from '../services/auth.service';
 export class OnboardingGuard implements CanActivate {
 
   constructor(
-    private storage: Storage, 
+    private storage: Storage,
     private router: Router,
-    private auth: AuthService   
+    private auth: AuthService
   ) {}
 
   async canActivate(
