@@ -56,7 +56,8 @@
   
   <!-- <app-profile [user]="auth.user$ | async"></app-profile> -->
   <div class="grid">
-    <img src="{{ userData.photoURL }}" class="imgg animated">
+    <!-- <img src="{{ userData.photoURL }}?height=500" class="imgg animated"> -->
+    <img src="{{ userPhoto }}" class="imgg animated">
     <div class="card animated">
       <h1 class="name">{{ userData.displayName || 'Utilisateur mystere...' }}</h1>
       <p class="school">{{ userData.school || 'aucune école'}}</p>
@@ -105,6 +106,7 @@
         <h1>Plus</h1>
       </button> -->
       <ion-button expand="full" mode="ios" shape="round" (tap)="goSettings()"><h1>Plus</h1></ion-button>
+      <!-- <ion-button expand="full" mode="ios" shape="round" (tap)="checkPhotoURL()"><h1>Plus</h1></ion-button> -->
     </div>
   </div>
 

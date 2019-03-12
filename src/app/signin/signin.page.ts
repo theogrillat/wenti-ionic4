@@ -1,3 +1,4 @@
+import { Facebook } from '@ionic-native/facebook/ngx';
 import { Component, OnDestroy } from '@angular/core';
 import { LoginComponent } from '../shared/login/login.component';
 import { AuthService } from '../services/auth.service';
@@ -14,9 +15,10 @@ export class SigninPage implements OnDestroy {
   pageName = 'Connexion';
   isLogging = false;
   user;
-  disposeMe;
+  disposeMeGoogle;
+  disposeMeFacebook;
 
-  constructor(public auth: AuthService, private router: Router) { }
+  constructor(public auth: AuthService, private router: Router, private fb: Facebook) { }
 
 
 
@@ -28,9 +30,10 @@ export class SigninPage implements OnDestroy {
     this.isLogging = true;
     this.auth.googleLogin();
     console.log('google');
-    this.disposeMe = this.auth.user$.subscribe(val => {
+    this.disposeMeGoogle = this.auth.user$.subscribe(val => {
       if (val) {
         // console.log('gogogoggoogogo');
+        this.disposeMeGoogle.unsubscribe();
         this.go();
       } else {
         console.error('failed');
@@ -40,13 +43,14 @@ export class SigninPage implements OnDestroy {
   }
 
 
-  facebook() {
+  async facebook() {
     this.isLogging = true;
     this.auth.facebookLogin();
     console.log('facebook');
-    this.disposeMe = this.auth.user$.subscribe(val => {
+    this.disposeMeFacebook = this.auth.user$.subscribe(val => {
       if (val) {
         // console.log('gogogoggoogogo');
+        this.disposeMeFacebook.unsubscribe();
         this.go();
       } else {
         console.error('failed');
@@ -60,8 +64,7 @@ export class SigninPage implements OnDestroy {
   }
 
   ngOnDestroy() {
-    console.error('DESTROOOOOY');
-    this.disposeMe.unsubscribe();
+    console.error('ngDestroy');
   }
 
 }

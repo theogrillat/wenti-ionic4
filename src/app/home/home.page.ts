@@ -29,15 +29,39 @@ export class HomePage implements OnInit, AfterViewInit {
   schoolList = [];
   userState;
   hasSchool = false;
+  userPhoto = '';
 
-  ngOnInit() {
+  async ngOnInit() {
     this.userData = this.getUserData();
     this.schools = this.setList();
+    this.userPhoto = await this.checkPhotoURL();
+    console.log(this.userPhoto);
     console.log('INIT');
   }
 
+
+
   ngAfterViewInit() {
     console.log('NEXT');
+  }
+
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+
+  async checkPhotoURL() {
+    await this.delay(1000);
+    const oldURL = await this.userData.photoURL;
+    let newURL = '';
+    if (await oldURL.includes('/s96')) {
+      newURL = await oldURL.split('/s96').join('/s500');
+    } else {
+      newURL = await oldURL + '?height=500';
+    }
+    console.log(await newURL);
+    return await newURL;
   }
 
   async getUserData () {

@@ -87,7 +87,11 @@ export class AuthService {
   async facebookLogin() {
     try {
       let user;
+      const loggingType = 'fb';
       user = await this.nativeFacebookLogin();
+      // user.photoURL = await user.photoURL + '?height=500';
+      // console.log(await user.photoURL);
+      // this.db.updateAt(`users/${this.uid}`, {loggingType} );
       return await this.updateUserData(user);
     } catch (err) {
       console.log(err);
@@ -131,6 +135,7 @@ export class AuthService {
       .then((response: FacebookLoginResponse) => {
         return response.authResponse;
       });
+      console.log(await fbUser.userID);
       return await this.afAuth.auth.signInWithCredential(
         auth.FacebookAuthProvider.credential(fbUser.accessToken)
       );
