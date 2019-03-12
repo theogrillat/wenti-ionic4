@@ -21,7 +21,7 @@
             </button>
           </div>
           <div class="card-full animated" *ngIf="schoolForm">
-            <div *ngIf="!userData.hasSchool">
+            <div *ngIf="!hasSchool">
               <h1>Entrez une école</h1>
               <ion-item>
                   <ion-label>Ecole :</ion-label>
@@ -39,7 +39,7 @@
                 <h1>Ajouter cette école</h1>
               </button>
             </div>
-            <div *ngIf="userData.hasSchool">
+            <div *ngIf="hasSchool">
               <h1>Tu as deja une ecole d'enregistrer !</h1>
             </div>
             <button class="btn secondary block" (click)="addSchool(false)">
@@ -59,6 +59,7 @@
     <img src="{{ userData.photoURL }}" class="imgg animated">
     <div class="card animated">
       <h1 class="name">{{ userData.displayName || 'Utilisateur mystere...' }}</h1>
+      <p class="school">{{ userData.school || 'aucune école'}}</p>
       <!-- <h1 class="name">Theo</h1> -->
       <div class="spec flex-row">
         <div class="flex-item sep-right">
@@ -100,9 +101,10 @@
           <h1>{{ userData.cashWinNbr || 0 }} €</h1>
         </div>
       </div>
-      <button class="plusProfile btn primary block" (click)="goSettings()">
+      <!-- <button class="plusProfile btn primary block" (click)="goSettings()">
         <h1>Plus</h1>
-      </button>
+      </button> -->
+      <ion-button expand="full" mode="ios" shape="round" (tap)="goSettings()"><h1>Plus</h1></ion-button>
     </div>
   </div>
 

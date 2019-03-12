@@ -38,6 +38,9 @@ h4, h5, h6 {
     font-family: RobotoLight;
 }
 
+ion-content{
+    --background: none;
+}
 
 
 .ion-card-low-padding-left {
@@ -74,7 +77,7 @@ h4, h5, h6 {
     border-right: 1px solid #5f5f5f;
 }
 
-.btn {
+.btn, ion-button {
     margin-top: 5px;
     margin-bottom: 5px;
     height: 45px;
@@ -112,6 +115,17 @@ h4, h5, h6 {
         color: #ffffff;
     }
 }
+
+
+ion-button {
+    margin-left: 10%;
+    width: 80%;
+    & h1 {
+        font-size: 1.5em;
+    }
+}
+
+
 .spec-title {
     color: #5f5f5f;
     font-weight: 100;
@@ -143,4 +157,19 @@ h4, h5, h6 {
     animation-name: opac;
     animation-duration: 800ms;
     animation-timing-function: cubic-bezier(.24,.11,.23,1);
+}
+
+
+.card-full {
+    top: 0px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    z-index: 50;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 4%;
+    padding: 2%;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
 }

@@ -1,6 +1,6 @@
 import { DbService } from './../services/db.service';
 import { Firebase } from '@ionic-native/firebase/ngx';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LoginComponent } from '../shared/login/login.component';
 import { ProfileComponent } from '../shared/profile/profile.component';
 import { AuthService } from '../services/auth.service';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, AfterViewInit {
 
   constructor(
     public firebase: Firebase,
@@ -28,11 +28,16 @@ export class HomePage implements OnInit {
   schools;
   schoolList = [];
   userState;
+  hasSchool = false;
 
   ngOnInit() {
     this.userData = this.getUserData();
     this.schools = this.setList();
-    this.setState();
+    console.log('INIT');
+  }
+
+  ngAfterViewInit() {
+    console.log('NEXT');
   }
 
   async getUserData () {
@@ -40,6 +45,7 @@ export class HomePage implements OnInit {
   }
 
   addSchool(bool) {
+    this.setState();
     if (bool) {
       this.schoolForm = true;
     } else {
@@ -56,28 +62,30 @@ export class HomePage implements OnInit {
 
 
 
-  validate() {
+  async validate() {
     console.log(this.schoolFinal);
     const school = this.schoolFinal;
     const err = 'errrrr';
-    if (this.userData.school) {
-      this.db.updateAt(`users/${this.userData.uid}`, { err });
+    if (await this.userData.school) {
+      // this.db.updateAt(`users/${this.userData.uid}`, { err });
+      this.hasSchool = false;
     } else {
       this.db.updateAt(`users/${this.userData.uid}`, { school });
+      this.hasSchool = true;
     }
   }
 
-  setState() {
-    console.log(this.userData);
-    // if (this.userData.school) {
-    //   this.userState.hasSchool = true;
-    //   console.log('hasSchool: ' + this.userState.hasSchool);
-    //   console.log('User school: ' + this.userData.school);
-    // } else {
-    //   this.userState.hasSchool = false;
-    //   console.log('hasSchool: ' + this.userState.hasSchool);
-    //   console.log('User school: ' + this.userData.school);
-    // }
+  async setState() {
+    console.log(await this.userData.school);
+    if (await this.userData.school) {
+      this.hasSchool = true;
+      console.log('hasSchool: ' + this.hasSchool);
+      console.log('User school: ' + this.userData.school);
+    } else {
+      this.hasSchool = false;
+      console.log('hasSchool: ' + this.hasSchool);
+      console.log('User school: ' + this.userData.school);
+    }
   }
 
   async setList() {
