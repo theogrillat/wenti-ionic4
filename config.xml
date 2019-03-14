@@ -3,7 +3,7 @@
     <name>Wenti</name>
     <description>Wenti</description>
     <author email="info@theogrillat.fr" href="https://theogrillat.fr/">Theo Grillat</author>
-    <content original-src="index.html" src="http://192.168.1.39:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -107,7 +107,6 @@
     <allow-navigation href="http://192.168.101.139:8104" sessionid="def5c0d6" />
     <allow-navigation href="http://192.168.43.252:8100" sessionid="d32b5391" />
     <allow-navigation href="http://192.168.43.252:8101" sessionid="dec4f6ff" />
-    <allow-navigation href="http://192.168.1.39:8100" sessionid="c1fa53ab" />
     <engine name="android" spec="7.1.4" />
     <engine name="ios" spec="4.5.5" />
 </widget>
