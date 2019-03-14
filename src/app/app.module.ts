@@ -20,9 +20,10 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MenuComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

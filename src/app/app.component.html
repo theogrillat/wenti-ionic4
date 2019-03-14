@@ -1,3 +1,13 @@
 <ion-app class="ios">
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu type="overlay" side="start" menuId="custom" class="my-custom-menu">
+    <img class="menu-logo" src="../assets/img/icon.png" alt="logo">
+    <ion-content>
+        <h2>Item 1</h2>
+        <h2>Item 2</h2>
+        <h2>Item 3</h2>
+        <h2>Item 4</h2>
+        <h2>Item 5</h2>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
 </ion-app>
