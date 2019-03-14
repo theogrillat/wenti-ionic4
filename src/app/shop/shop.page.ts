@@ -10,6 +10,7 @@ import { DbService } from '../services/db.service';
 export class ShopPage implements OnInit {
   name = 'Boutique';
   goodsList;
+  clicked = false;
 
   constructor(public auth: AuthService, public db: DbService) {}
 
@@ -17,25 +18,46 @@ export class ShopPage implements OnInit {
     this.goodsList = this.getGoodsList();
   }
 
+  toggle() {
+    if (this.clicked) {
+      this.clicked = false;
+    } else {
+      this.clicked = true;
+    }
+  }
+
+
 
   addGood() {
-    const min = 500;
-    const max = 4000;
-    const name = 'srgwd';
-    const desc = 'efoiqefjohe oiqehf heqoifh oqiehfio qehlfe qehlgiqeh lihjqleih flqiuehgf elqih';
-    const price = Math.floor(Math.random() * (+max - +min)) + +min;
+    const min = 10;
+    const max = 50;
+    const name = 'Good';
+    const img = 'http://wenti.fr/img/icon.png';
+    const desc = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis egestas justo.';
+    const price = (Math.floor(Math.random() * (+max - +min)) + +min) * 100;
     const good = {
       name,
       desc,
-      price
+      price,
+      img
     };
     console.log(good);
-    this.db.updateAt(`goods/`, { name, desc, price });
+    this.db.updateAt(`goods/`, { name, desc, price, img });
   }
 
 
   async getGoodsList() {
-    await this.db.collection$('goods').subscribe(val => this.goodsList = val);
+    await this.db.collection$('goods').subscribe(val => {
+      this.goodsList = val;
+      // console.log(val);
+      let i = 1;
+      this.goodsList.forEach(el => {
+        el.nbr = i;
+        // console.log(i);
+        i = i + 1;
+      });
+      // console.log(this.goodsList);
+    });
   }
 
 }

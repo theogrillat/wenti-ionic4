@@ -18,17 +18,32 @@
     <ion-button expand="full" mode="ios" shape="round" (tap)="addGood()">
       <h1>Add an Item</h1>
     </ion-button>
+    <ion-button expand="full" mode="ios" shape="round" (tap)="toggle()">
+      <h1>toggle</h1>
+    </ion-button>
 
   </div>
   <div class="goodList">
-    <div *ngFor="let item of goodsList" class="card-full">
+    <div *ngFor="let item of goodsList | keyvalue" class="card-full good">
+
       <ion-card-header>
-        <ion-card-title>{{item.name}}</ion-card-title>
-        <ion-card-subtitle>{{item.desc}}</ion-card-subtitle>
+        <ion-card-title>Cadeau n°{{item.value.nbr}}</ion-card-title>
+        <ion-card-subtitle *ngIf="!clicked">{{item.value.desc || 'null'}}</ion-card-subtitle>
       </ion-card-header>
+
       <ion-card-content>
-        <h2>{{item.price}} medals</h2>
+        <div *ngIf="clicked" class="dummy"></div>
+        <img *ngIf="clicked" class="good-img" src="{{item.value.img}}" alt="logo">
+        <h2 class="prix">{{item.value.price}} medailles</h2>
+        <div *ngIf="clicked" class="dummy-deux"></div>
+
+        <ion-fab *ngIf="clicked" class="fabifab" horizontal="end">
+          <ion-fab-button color="secondary" mode="ios">
+            <ion-icon name="cart"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
       </ion-card-content>
+
     </div>
   </div>
 
