@@ -1,3 +1,4 @@
+import { MenuController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../services/db.service';
 import { AuthService } from '../services/auth.service';
@@ -14,7 +15,8 @@ export class PlayPage implements OnInit {
   constructor(
     private db: DbService,
     private auth: AuthService,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    public menu: MenuController
   ) {}
 
   name = 'Jouer';
@@ -27,6 +29,10 @@ export class PlayPage implements OnInit {
 
   ngOnInit() {
     this.userData = this.getUserData();
+  }
+
+  openMenu() {
+    this.menu.open();
   }
 
   async getUserData () {

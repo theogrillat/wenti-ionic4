@@ -1,78 +1,116 @@
 <ion-header mode="ios">
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title color="light">{{name}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
+  <div class="menu-btn" (tap)="openMenu()">
+    <ion-icon name="menu"></ion-icon>
+  </div>
+  <h1 class="title page-title animated">{{name}}</h1>
+</ion-header>
 
 
 
-<ion-content>
 
-  <!-- <ion class="bgon"> -->
+
+<!-- <ion class="bgon"> -->
+<div class="bgon">
 
   <div class="card-full animated">
-    <ion-card-header>
-      <ion-card-subtitle>Page {{name}}</ion-card-subtitle>
-      <ion-card-title>{{name}}</ion-card-title>
-    </ion-card-header>
-  
-    <ion-card-content>
-      ceci est la page {{name}}
-    </ion-card-content>
     <ion-card-content>
       Points: {{ userData.points || 0 }}<br>
       Parties: {{ userData.playNbr || 0 }}<br>
       Victoires: {{ userData.winNbr || 0 }}<br>
       Cash gagné: {{ userData.cashWinNbr || 0 }}<br>
       medals gagné: {{ userData.medals || 0 }}<br>
-       
     </ion-card-content>
-    <ion-card-content padding>
-        <button class="btn primary side" (click)="updatePoints(true)">
-          <h1>Ajouter {{ addPoints }} points</h1>
-        </button>
-        <button class="btn secondary side" (click)="updatePoints(false)">
-          <h1>Retirer {{ addPoints }} points</h1>
-        </button>
-    </ion-card-content>
-    <ion-card-content padding>
-        <button class="btn primary side" (click)="updatePlay(true)">
-          <h1>Ajouter {{ addPlay }} play</h1>
-        </button>
-        <button class="btn secondary side" (click)="updatePlay(false)">
-          <h1>Retirer {{ addPlay }} play</h1>
-        </button>
-    </ion-card-content>
-    <ion-card-content padding>
-        <button class="btn primary side" (click)="updateWin(true)">
-          <h1>Ajouter {{ addWin }} win</h1>
-        </button>
-        <button class="btn secondary side" (click)="updateWin(false)">
-          <h1>Retirer {{ addWin }} win</h1>
-        </button>
-    </ion-card-content>
-    <ion-card-content padding>
-        <button class="btn primary side" (click)="updateCash(true)">
-          <h1>Ajouter {{ addCashWin }} cash</h1>
-        </button>
-        <button class="btn secondary side" (click)="updateCash(false)">
-          <h1>Retirer {{ addCashWin }} cash</h1>
-        </button>
-    </ion-card-content>
-    <ion-card-content padding>
-      <button class="btn primary side" (click)="updateMedals(true)">
-        <h1>Ajouter {{ addMedals }} Medals</h1>
-      </button>
-      <button class="btn secondary side" (click)="updateMedals(false)">
-        <h1>Retirer {{ addMedals }} Medals</h1>
-      </button>
-  </ion-card-content>
-        
-  </div>
 
-</ion-content>
+    <div class="columns is-mobile">
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-primary is-rounded is-medium" (tap)="updatePoints(true)">Ajouter<br> {{ addPoints }} points</a>
+      </div>
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-danger is-rounded is-medium" (tap)="updatePoints(false)">Retirer<br> {{ addPoints }} points</a>
+      </div>
+    </div>
+
+    <div class="columns is-mobile">
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-primary is-rounded is-medium" (tap)="updatePlay(true)">Ajouter<br> {{ addPlay }} play</a>
+      </div>
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-danger is-rounded is-medium" (tap)="updatePlay(false)">Retirer<br> {{ addPlay }} play</a>
+      </div>
+    </div>
+
+    <div class="columns is-mobile">
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-primary is-rounded is-medium" (tap)="updateWin(true)">Ajouter<br> {{ addWin }} win</a>
+      </div>
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-danger is-rounded is-medium" (tap)="updateWin(false)">Retirer<br> {{ addWin }} win</a>
+      </div>
+    </div>
+
+    <div class="columns is-mobile">
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-primary is-rounded is-medium" (tap)="updateCash(true)">Ajouter<br> {{ addCashWin }} cash</a>
+      </div>
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-danger is-rounded is-medium" (tap)="updateCash(false)">Retirer<br> {{ addCashWin }} cash</a>
+      </div>
+    </div>
+
+    <div class="columns is-mobile">
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-primary is-rounded is-medium" (tap)="updateMedals(true)">Ajouter<br> {{ addMedals }} Medals</a>
+      </div>
+      <div class="column has-text-centered">
+        <a class="button cnct btnw5 is-danger is-rounded is-medium" (tap)="updateMedals(false)">Retirer<br> {{ addMedals }} Medals</a>
+      </div>
+    </div>
+
+
+ 
+
+    <!-- <ion-card-content padding>
+          <button class="btn primary side" (click)="updatePoints(true)">
+            <h1>Ajouter {{ addPoints }} points</h1>
+          </button>
+          <button class="btn secondary side" (click)="updatePoints(false)">
+            <h1>Retirer {{ addPoints }} points</h1>
+          </button>
+        </ion-card-content>
+        <ion-card-content padding>
+          <button class="btn primary side" (click)="updatePlay(true)">
+            <h1>Ajouter {{ addPlay }} play</h1>
+          </button>
+          <button class="btn secondary side" (click)="updatePlay(false)">
+            <h1>Retirer {{ addPlay }} play</h1>
+          </button>
+        </ion-card-content>
+        <ion-card-content padding>
+          <button class="btn primary side" (click)="updateWin(true)">
+            <h1>Ajouter {{ addWin }} win</h1>
+          </button>
+          <button class="btn secondary side" (click)="updateWin(false)">
+            <h1>Retirer {{ addWin }} win</h1>
+          </button>
+        </ion-card-content>
+        <ion-card-content padding>
+          <button class="btn primary side" (click)="updateCash(true)">
+            <h1>Ajouter {{ addCashWin }} cash</h1>
+          </button>
+          <button class="btn secondary side" (click)="updateCash(false)">
+            <h1>Retirer {{ addCashWin }} cash</h1>
+          </button>
+        </ion-card-content>
+        <ion-card-content padding>
+          <button class="btn primary side" (click)="updateMedals(true)">
+            <h1>Ajouter {{ addMedals }} Medals</h1>
+          </button>
+          <button class="btn secondary side" (click)="updateMedals(false)">
+            <h1>Retirer {{ addMedals }} Medals</h1>
+          </button>
+        </ion-card-content> -->
+
+  </div>
+</div>
+
 <!-- </ion-content> -->

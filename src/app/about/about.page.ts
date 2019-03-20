@@ -1,3 +1,4 @@
+import { MenuController } from '@ionic/angular';
 import { Component } from '@angular/core';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -14,8 +15,16 @@ export class AboutPage {
   longitude = 0;
   accur = 0;
 
-  constructor(private geolocation: Geolocation, private iab: InAppBrowser) { }
+  constructor(
+    private geolocation: Geolocation,
+    private iab: InAppBrowser,
+    public menu: MenuController
+  ) { }
 
+
+  openMenu() {
+    this.menu.open();
+  }
 
   getCoords() {
     this.geolocation.getCurrentPosition().then((resp) => {

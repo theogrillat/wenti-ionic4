@@ -1,14 +1,12 @@
 <ion-header mode="ios">
-    <ion-toolbar color="primary">
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title color="light">{{name}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="menu-btn" (tap)="openMenu()">
+    <ion-icon name="menu"></ion-icon>
+  </div>
+  <h1 class="title page-title animated">{{name}}</h1>
+</ion-header>
 
-<ion-content class="animated">
-  <div class="card-full">
+<div class="bgon">
+  <div class="card-full animated">
     <ion-card-header>
       <ion-card-subtitle>Page {{name}}</ion-card-subtitle>
       <ion-card-title>{{name}}</ion-card-title>
@@ -17,7 +15,7 @@
       <ion-card-title>Precision : {{accur}}</ion-card-title>
 
     </ion-card-header>
-  
+
     <ion-card-content>
       ceci est la page {{name}}
       <button class="btn primary block" (click)="getCoords()">
@@ -25,4 +23,4 @@
       </button>
     </ion-card-content>
   </div>
-</ion-content>
+</div>

@@ -32,6 +32,9 @@
               },
               {
                 "input": "src/global.scss"
+              },
+              {
+                "input": "./node_modules/bulma/css/bulma.css"
               }
             ],
             "scripts": []

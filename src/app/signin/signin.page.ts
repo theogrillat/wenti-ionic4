@@ -26,7 +26,12 @@ export class SigninPage implements OnDestroy {
   //   return await this.auth.user$;
   // }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
   async google() {
+    await this.delay(300);
     this.isLogging = true;
     this.auth.googleLogin();
     console.log('google');
@@ -44,6 +49,7 @@ export class SigninPage implements OnDestroy {
 
 
   async facebook() {
+    await this.delay(300);
     this.isLogging = true;
     this.auth.facebookLogin();
     console.log('facebook');

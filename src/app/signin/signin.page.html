@@ -6,25 +6,32 @@
 
 <div class="bgon grid-btn">
     <ion-grid padding>
-        <ion-row>
-            <ion-col padding size="12">
-                <h1 text-center>Connection</h1>
-            </ion-col>
-        </ion-row>
-        <ion-row justify-content-center>
-            <ion-col padding size="8">
-                <ion-button shape="round" mode="ios" size="large" color="danger" expand="full" (click)="google()">
+        <div class="columns">
+            <div class="column has-text-centered">
+                <h1 class="title">Connexion</h1>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column has-text-centered">
+                <!-- <ion-button shape="round" mode="ios" size="large" color="danger" expand="full" (click)="google()">
                     Google
-                </ion-button>
-            </ion-col>
-        </ion-row>
-        <ion-row justify-content-center>
+                </ion-button> -->
+                <a class="button cnct btnw3 is-danger is-rounded is-medium" (tap)="google()">Google</a>
+            </div>
+            <div class="column has-text-centered">
+                <!-- <ion-button shape="round" mode="ios" size="large" color="danger" expand="full" (click)="google()">
+                    Google
+                </ion-button> -->
+                <a class="button cnct btnw3 is-link is-rounded is-medium" (tap)="facebook()">Facebook</a>
+            </div>
+        </div>
+        <!-- <ion-row justify-content-center>
             <ion-col padding size="8">
                 <ion-button shape="round" mode="ios" size="large" color="fb" expand="full" (click)="facebook()">
                     Facebook
                 </ion-button>
             </ion-col>
-        </ion-row>
+        </ion-row> -->
     </ion-grid>
 </div>
 

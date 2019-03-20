@@ -1,3 +1,4 @@
+import { MenuController } from '@ionic/angular';
 import { DbService } from './../services/db.service';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
@@ -17,7 +18,8 @@ export class HomePage implements OnInit, AfterViewInit {
     public firebase: Firebase,
     private db: DbService,
     private auth: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private menu: MenuController) { }
 
   pageName = 'Profile';
   userData;
@@ -41,6 +43,11 @@ export class HomePage implements OnInit, AfterViewInit {
 
 
 
+  openMenu() {
+    this.menu.open();
+  }
+
+
   ngAfterViewInit() {
     console.log('NEXT');
   }
@@ -52,7 +59,16 @@ export class HomePage implements OnInit, AfterViewInit {
 
 
   async checkPhotoURL() {
-    await this.delay(1000);
+    for (let i = 0; i < 3000; i++) {
+      const test = await this.userData.photoURL;
+      console.log(test);
+      if (test !== undefined) {
+        console.log('LOOOOP STOOOOP');
+        i = 3000;
+      }
+      console.log('iteration: ' + i);
+      await this.delay(10);
+    }
     const oldURL = await this.userData.photoURL;
     let newURL = '';
     if (await oldURL.includes('/s96')) {

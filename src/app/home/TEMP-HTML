@@ -1,0 +1,121 @@
+<ion-header mode="ios">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title color="light">{{pageName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<div class="bgon" *ngIf="!home">
+    <div>
+          <div class="card-full animated" *ngIf="!schoolForm">
+            <button class="btn primary btn-more block" (click)="goBack()">
+              <h1>Back</h1>
+            </button>
+            <button class="btn secondary btn-more block" (click)="signOut()">
+              <h1>Se déconnecter</h1>
+            </button>
+            <button class="btn primary btn-more block" (click)="addSchool(true)">
+              <h1>Ajouter une ecole</h1>
+            </button>
+          </div>
+          <div class="card-full animated" *ngIf="schoolForm">
+            <div *ngIf="!hasSchool">
+              <h1>Entrez une école</h1>
+              <ion-item>
+                  <ion-label>Ecole :</ion-label>
+                  <ion-select [(ngModel)]="schoolFinal" value="choose" okText="Okay" cancelText="Dismiss">
+                    <ion-select-option value="choose">Choisir une école</ion-select-option>
+                    <ion-select-option *ngFor="let school of schools" value="{{ school.name }}">{{ school.name }}</ion-select-option>
+                  </ion-select>
+              </ion-item>
+              <!-- <input class="input-school" > -->
+              <!-- <div class="input-group">
+                  <input type="text" id="first" [(ngModel)]="schoolInput" class="m-input">
+                  <label for="first">Nom de l'ecole</label>
+              </div> -->
+              <button class="btn primary block" (click)="validate()">
+                <h1>Ajouter cette école</h1>
+              </button>
+            </div>
+            <div *ngIf="hasSchool">
+              <h1>Tu as deja une ecole d'enregistrer !</h1>
+            </div>
+            <button class="btn secondary block" (click)="addSchool(false)">
+              <h1>Retour</h1>
+            </button>
+
+            
+          </div>
+        <!-- <a [routerLink]="['/signin']"></a> -->
+      </div>
+</div>
+
+<div class="bgon" *ngIf="home">
+  
+  <!-- <app-profile [user]="auth.user$ | async"></app-profile> -->
+  <div class="grid">
+    <!-- <img src="{{ userData.photoURL }}?height=500" class="imgg animated"> -->
+    <img src="{{ userPhoto }}" class="imgg animated">
+    <div class="card animated">
+      <h1 class="name">{{ userData.displayName || 'Utilisateur mystere...' }}</h1>
+      <p class="school">{{ userData.school || 'aucune école'}}</p>
+      <!-- <h1 class="name">Theo</h1> -->
+      <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Medailles</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.points || 0 }}</h1>
+        </div>
+      </div>
+      <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Nombre de<br>parties</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.playNbr || 0 }}</h1>
+        </div>
+      </div>
+      <!-- <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Nombre de medailles</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.medals || 0 }}</h1>
+        </div>
+      </div> -->
+      <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Nombre de victoires</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.winNbr || 0 }}</h1>
+        </div>
+      </div>
+      <!-- <div class="spec flex-row">
+        <div class="flex-item sep-right">
+          <h5 class="spec-title">Argent<br>gagné</h5>
+        </div>
+        <div class="flex-item">
+          <h1>{{ userData.cashWinNbr || 0 }} €</h1>
+        </div>
+      </div> -->
+      <!-- <button class="plusProfile btn primary block" (click)="goSettings()">
+        <h1>Plus</h1>
+      </button> -->
+      <a class="button cnct btnw3 is-primary is-rounded is-medium" (tap)="goSettings()">Plus</a>
+      
+      <!-- <ion-button expand="full" mode="ios" shape="round" (tap)="checkPhotoURL()"><h1>Plus</h1></ion-button> -->
+    </div>
+  </div>
+
+  
+
+</div>
+
+
