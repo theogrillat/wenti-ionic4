@@ -1,11 +1,25 @@
 <ion-header mode="ios">
-    <div class="menu-btn" (tap)="openMenu()">
-        <ion-icon name="menu"></ion-icon>
-    </div>
-    <h1 class="title page-title animated">{{pageName}}</h1>
+  <div class="menu-btn white" (tap)="openMenu()">
+    <ion-icon name="menu"></ion-icon>
+  </div>
+  <h1 class="title white page-title animated">{{pageName}}</h1>
 </ion-header>
 
-
+<div class="card-top">
+  <div class="cont">
+    <div class="columns is-mobile">
+      <div class="column">
+        <h1 class="name">{{ userData.displayName || 'Utilisateur mystere...' }}</h1>
+        <p class="school">{{ userData.school || 'aucune école'}}</p>
+      </div>
+      <div class="column has-text-right">
+        <img src="{{ userPhoto }}" class="imgg animated">
+      </div>
+    </div>
+  </div>
+      <a class="button cnct btnw3 is-secondary is-rounded is-medium more" (tap)="goSettings()"><h1>Plus</h1></a>
+ 
+</div>
 
 
 <div class="bgon" *ngIf="!home">
@@ -28,7 +42,8 @@
           <ion-label>Ecole :</ion-label>
           <ion-select [(ngModel)]="schoolFinal" value="choose" okText="Okay" cancelText="Dismiss">
             <ion-select-option value="choose">Choisir une école</ion-select-option>
-            <ion-select-option *ngFor="let school of schools" value="{{ school.name }}">{{ school.name }}</ion-select-option>
+            <ion-select-option *ngFor="let school of schools" value="{{ school.name }}">{{ school.name }}
+            </ion-select-option>
           </ion-select>
         </ion-item>
         <!-- <input class="input-school" > -->
@@ -54,16 +69,36 @@
 </div>
 
 <div class="bgon" *ngIf="home">
-  <div class="card-full animated">
-    <div class="columns is-mobile">
-      <div class="column">
-        <h1 class="name">{{ userData.displayName || 'Utilisateur mystere...' }}</h1>
-        <p class="school">{{ userData.school || 'aucune école'}}</p>
-      </div>
-      <div class="column has-text-right">
-        <img src="{{ userPhoto }}" class="imgg animated">
-      </div>
+
+  <div class="sub-card-wrapper">
+    <div class="sub-card c-full">
+      <h1 class="spec-title">
+        <span class="nbr">{{ userData.points || 0 }}</span><br>
+        Médailles
+      </h1>
     </div>
+
+    <div class="sub-card c-left">
+      <h1 class="spec-title">
+        <span class="nbr">{{ userData.winNbr || 0 }}</span><br>
+        Victoires
+      </h1>
+    </div>
+
+    <div class="sub-card c-right">
+      <h1 class="spec-title">
+        <span class="nbr">{{ userData.playNbr || 0 }}</span><br>
+        Parties
+      </h1>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- <div class="card-full animated">
+    
     <div class="columns is-mobile">
       <div class="column has-text-centered">
         <h2 class="spec-title">Medailles</h2>
@@ -89,9 +124,9 @@
       </div>
     </div>
     <div class="container has-text-centered">
-        <a class="button cnct btnw3 is-primary is-rounded is-medium" (tap)="goSettings()">Plus</a>
+        <a class="button cnct btnw3 is-primary is-rounded is-medium" (tap)="goSettings()"><h1>Plus</h1></a>
     </div>
-  </div>
+  </div> -->
 
 
 

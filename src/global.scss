@@ -93,6 +93,10 @@ ion-content{
     width: 100%;
 }
 
+.white {
+    color: #ffffff !important;
+}
+
 .sep-right {
     border-right: 1px solid #5f5f5f;
 }
@@ -183,14 +187,14 @@ ion-button {
 
 @keyframes opac {
     0% {
-        transform: translateY(0px);
+        // transform: translateY(0px);
         opacity: 1;
         // transform: scale(1);
         // transform: rotateX(0);
         // transform-origin: top;
     }
     100% {
-        transform: translateY(30px);
+        // transform: translateY(300px);
         opacity: 0;
         // transform: scale(0.95);
         // transform: rotateX(180deg);
@@ -202,16 +206,16 @@ ion-button {
 .animated {
     animation-name: opac;
     animation-duration: 250ms;
-    // animation-timing-function: cubic-bezier(.24,.11,.23,1);
-    animation-timing-function: cubic-bezier(0,0,0,1);
+    animation-timing-function: cubic-bezier(.24,.11,.23,1);
+    // animation-timing-function: cubic-bezier(0,0,0,1);
     animation-direction: reverse;
 }
 
 .animated-reverse {
     animation-name: opac;
     animation-duration: 250ms;
-    // animation-timing-function: cubic-bezier(.24,.11,.23,1);
-    animation-timing-function: cubic-bezier(0,0,0,1);
+    animation-timing-function: cubic-bezier(.24,.11,.23,1);
+    // animation-timing-function: cubic-bezier(0,0,0,1);
 }
 
 

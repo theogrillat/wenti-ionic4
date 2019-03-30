@@ -8,19 +8,17 @@
 <div class="bgon">
   <div class="card-full animated">
     <ion-card-header>
-      <ion-card-subtitle>Page {{name}}</ion-card-subtitle>
-      <ion-card-title>{{name}}</ion-card-title>
-      <ion-card-title>Latitude : {{latitude}}</ion-card-title>
-      <ion-card-title>Longitude : {{longitude}}</ion-card-title>
-      <ion-card-title>Precision : {{accur}}</ion-card-title>
+      <ion-card-title *ngIf="gotCoords">Vous etes actuelement au<br> {{coords.address.subThoroughfare || null}}, {{coords.address.thoroughfare || null}}, {{coords.address.postalCode || null}}, {{coords.address.locality || null}}</ion-card-title>
+      <ion-card-title *ngIf="!gotCoords" >Clickez sur "Me localiser" pour obtenir votre adresse</ion-card-title>
+      <!-- <ng-template #elseBlock>Clickez sur "Me localiser" pour obtenir votre adresse</ng-template> -->
+      
 
     </ion-card-header>
 
-    <ion-card-content>
-      ceci est la page {{name}}
-      <button class="btn primary block" (click)="getCoords()">
-        <h1>Get coords</h1>
-      </button>
-    </ion-card-content>
+    <div class="has-text-centered">
+      <a class="button is-medium is-primary btnw4 is-rounded" (tap)="click()">
+        <h1>Me localiser</h1>
+      </a>
+    </div>
   </div>
 </div>

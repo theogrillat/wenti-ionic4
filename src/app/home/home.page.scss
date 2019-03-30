@@ -4,16 +4,78 @@
 }
 
 
+.cont {
+    padding: 20px 40px 20px 40px;
+}
+
+.card-top {
+    padding-top: 76px;
+    color: #ffffff;
+    background-color: #67D3B9;
+    width: 100vw;
+    height: 33vh;
+    border-radius: 0px 0px 42px 42px;
+    box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+
 .school {
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+.spec-title {
+    margin-top: 26px;
+    color: #4A4A4A;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 1.5em;
+    & .nbr {
+        font-size: 2em;
+        font-family: RobotoBlack
+    }
+}
+
+
+
 
 
 .plusProfile {
     margin-top: 13%;
 }
 
+.sub-card-wrapper {
+    margin-top: 7vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.sub-card {
+    padding: 4%;
+    box-shadow: 0 23px 46px rgba(0,0,0,.03);
+    z-index: 50;
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 4%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 28px;
+    
+    &.c-full {
+        height: 35vw;
+    } 
+    &.c-left {
+        width: 35vw;
+        float: left;
+        margin-right: 0px;
+        height: 35vw;
+    }
+    &.c-right {
+        width: 35vw;
+        float: right;
+        margin-left: 0px;
+        height: 35vw;
+    }
+}
 
 
 .img {
@@ -47,25 +109,38 @@
 }
 
 
+.more {
+    left: 16vw;
+    position: absolute;
+    width: 20px;
+    border: none;
+    color: #ffffff;
+    background-color: #FFA745;
+    top: 29vh;
+}
+
 
 .btn-more {
     margin: 4% auto 4% auto !important;
 }
 
 .imgg {
-    box-shadow: 0 4px 16px rgba(0,0,0,.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     width: 100%;
     z-index: 80;
     height: calc(width);
     grid-column: 3 / 5;
     grid-row: 2 / 4;
-    // background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 100px;
+    margin-top: -12px;
 }
 
 .name {
     margin-bottom: 0px;
-    font-size: 2.5em;
+    font-size: 2.6em;
+    font-family: Roboto;
+    font-weight: 600;
+    letter-spacing: 5px;
 }
 
 .logout-btn {

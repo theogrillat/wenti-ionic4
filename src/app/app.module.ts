@@ -21,6 +21,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { MenuComponent } from './menu/menu.component';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
@@ -44,7 +45,8 @@ import { MenuComponent } from './menu/menu.component';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     InAppBrowser,
-    Geolocation
+    Geolocation,
+    NativeGeocoder
   ],
   bootstrap: [AppComponent]
 })
