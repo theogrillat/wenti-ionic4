@@ -21,7 +21,7 @@ export class HomePage implements OnInit, AfterViewInit {
     private router: Router,
     private menu: MenuController) { }
 
-  pageName = 'Profile';
+  pageName = 'Mon Profil';
   userData;
   home = true;
   schoolForm = false;

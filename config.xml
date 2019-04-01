@@ -107,6 +107,16 @@
     <allow-navigation href="http://192.168.101.139:8104" sessionid="def5c0d6" />
     <allow-navigation href="http://192.168.43.252:8100" sessionid="d32b5391" />
     <allow-navigation href="http://192.168.43.252:8101" sessionid="dec4f6ff" />
+    <plugin name="cordova-plugin-googlemaps" spec="2.5.3">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBOcrWrma7jLEL30VFkmIa7txvmQM3Xdno" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyAwAcLLDDL9_BCiYYbU6Wc1FNCjIxavJwQ" />
+        <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
+    </plugin>
+    <allow-navigation href="http://10.208.6.142:8100" sessionid="d75afb52" />
+    <allow-navigation href="http://10.208.6.142:8101" sessionid="39669e19" />
     <engine name="android" spec="7.1.4" />
     <engine name="ios" spec="4.5.5" />
 </widget>

@@ -2,3 +2,36 @@
     width: 100%;
     height: calc(100% - 56px);
 }
+
+.cont {
+    padding: 20px 40px 20px 40px;
+}
+
+.card-top {
+    padding-top: 50px;
+    color: #ffffff;
+    background-color: #67D3B9;
+    width: 100vw;
+    height: 18vh;
+    border-radius: 0px 0px 42px 42px;
+    box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.15);
+}
+
+.locate {
+    color: #ffffff;
+    background-color: #FFA745;
+    border: none;
+    box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.15);
+    &:active {
+        background-color: rgb(231, 151, 59);
+    }
+}
+
+#map_canvas {
+    z-index: 2;
+    position: absolute;
+    top: 15vh;
+    width: 100vw;
+    height: 85vh;
+  }
+

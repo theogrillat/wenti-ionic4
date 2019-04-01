@@ -1,24 +1,33 @@
 <ion-header mode="ios">
-  <div class="menu-btn" (tap)="openMenu()">
+  <div class="menu-btn white" (tap)="openMenu()">
     <ion-icon name="menu"></ion-icon>
   </div>
-  <h1 class="title page-title animated">{{name}}</h1>
+  <h1 class="title page-title animated white">{{name}}</h1>
 </ion-header>
+<div id="map_canvas">
+</div>
+<div class="card-top">
+  <div class="cont">
+    
+  </div>
+  <div class="has-text-centered">
+    <a class="button locate is-medium is-secondary btnw4 is-rounded" (tap)="onButtonClick()">
+      <h1>Me localiser</h1>
+    </a>
+  </div>
+</div>
 
 <div class="bgon">
-  <div class="card-full animated">
+  <!-- <div class="card-full animated">
     <ion-card-header>
       <ion-card-title *ngIf="gotCoords">Vous etes actuelement au<br> {{coords.address.subThoroughfare || null}}, {{coords.address.thoroughfare || null}}, {{coords.address.postalCode || null}}, {{coords.address.locality || null}}</ion-card-title>
-      <ion-card-title *ngIf="!gotCoords" >Clickez sur "Me localiser" pour obtenir votre adresse</ion-card-title>
+    <ion-card-title *ngIf="!gotCoords" >Clickez sur "Me localiser" pour obtenir votre adresse</ion-card-title> -->
       <!-- <ng-template #elseBlock>Clickez sur "Me localiser" pour obtenir votre adresse</ng-template> -->
       
 
-    </ion-card-header>
+    <!-- </ion-card-header>
 
-    <div class="has-text-centered">
-      <a class="button is-medium is-primary btnw4 is-rounded" (tap)="click()">
-        <h1>Me localiser</h1>
-      </a>
-    </div>
-  </div>
+    
+  </div> -->
+    
 </div>

@@ -21,10 +21,11 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
-    "@ionic-native/core": "5.0.0-beta.21",
+    "@ionic-native/core": "^5.0.0",
     "@ionic-native/facebook": "^5.0.0-beta.22",
     "@ionic-native/firebase": "^5.0.0-beta.22",
     "@ionic-native/geolocation": "^5.0.0-beta.23",
+    "@ionic-native/google-maps": "^5.0.0-beta.27",
     "@ionic-native/google-plus": "^5.0.0-beta.22",
     "@ionic-native/in-app-browser": "^5.0.0-beta.23",
     "@ionic-native/native-geocoder": "^5.3.0",
@@ -42,6 +43,7 @@
     "cordova-plugin-facebook4": "3.2.0",
     "cordova-plugin-firebase": "2.0.5",
     "cordova-plugin-geolocation": "4.0.1",
+    "cordova-plugin-googlemaps": "2.5.3",
     "cordova-plugin-googleplus": "5.3.2",
     "cordova-plugin-inappbrowser": "3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
@@ -115,6 +117,14 @@
       },
       "cordova-plugin-nativegeocoder": {
         "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service"
+      },
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyBOcrWrma7jLEL30VFkmIa7txvmQM3Xdno",
+        "API_KEY_FOR_IOS": "AIzaSyAwAcLLDDL9_BCiYYbU6Wc1FNCjIxavJwQ",
+        "PLAY_SERVICES_VERSION": "15.0.1",
+        "ANDROID_SUPPORT_V4_VERSION": "27.+",
+        "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
+        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
       }
     },
     "platforms": [
