@@ -1,3 +1,4 @@
+import { DbService } from './../services/db.service';
 import {
   MenuController,
   ToastController,
@@ -26,13 +27,14 @@ import {
 export class AboutPage implements OnInit {
   map: GoogleMap;
   loading: any;
-  name = 'Localisation';
+  name = 'Ecrans';
   latitude = 0;
   longitude = 0;
   accur = 0;
   coords;
   addr;
   gotCoords = false;
+  screens;
 
   geoencoderOptions: NativeGeocoderOptions = {
     useLocale: true,
@@ -40,6 +42,7 @@ export class AboutPage implements OnInit {
   };
 
   constructor(
+    private db: DbService,
     private nativeGeocoder: NativeGeocoder,
     private geolocation: Geolocation,
     private iab: InAppBrowser,
@@ -53,6 +56,18 @@ export class AboutPage implements OnInit {
   async ngOnInit() {
     await this.platform.ready();
     await this.loadMap();
+    await this.getScreens();
+  }
+
+  async getScreens() {
+    return await this.db.collection$('screens').subscribe(val => {
+      this.screens = val;
+      console.log(val);
+    });
+  }
+
+  setMarkers() {
+
   }
 
 
@@ -290,10 +305,21 @@ export class AboutPage implements OnInit {
       });
 
       // add a marker
-      let marker: Marker = this.map.addMarkerSync({
-        title: 'Vous êtes ici !',
-        position: location.latLng,
-        animation: GoogleMapsAnimation.BOUNCE
+      // let marker: Marker = this.map.addMarkerSync({
+      //   title: 'Vous êtes ici !',
+      //   position: location.latLng,
+      //   animation: GoogleMapsAnimation.BOUNCE
+      // });
+
+      this.screens.forEach(element => {
+        console.log(location.latLng);
+        console.log('IT');
+        console.log(element.coords);
+        let marker: Marker = this.map.addMarkerSync({
+          title: element.title,
+          position: element.coords,
+          animation: GoogleMapsAnimation.BOUNCE
+        });
       });
 
       // show the infoWindow
