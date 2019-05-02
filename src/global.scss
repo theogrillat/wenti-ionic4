@@ -30,6 +30,10 @@
     src: url('./assets/fonts/roboto-black.woff2');
 }
 
+.ion-page {
+    display: block;
+}
+
 body {
     padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
     padding-top: env(safe-area-inset-top); /* iOS 11.2 */

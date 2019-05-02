@@ -15,7 +15,7 @@
   </ion-toolbar>
 </ion-header>
 
-<div class="card-top">
+<div id="test" class="card-top">
   <div class="cont">
     <div class="columns is-mobile">
       <div class="column">
@@ -30,9 +30,13 @@
   <!-- <a *ngIf="more" class="button cnct btnw3 is-rounded is-medium more animated" (tap)="goSettings()">
     <img src="../../assets/img/more.svg">
   </a> -->
-  <div *ngIf="more" class="more more-round animated" (tap)="goSettings()">
+  <div id="moreBtn" *ngIf="more" class="more more-round animated" (tap)="goSettings()">
       <img class="more-icon" src="../../assets/img/more.svg">
   </div>
+
+  <a *ngIf="moreAnime" class="button signoutBtn is-medium is-secondary is-rounded animated" (tap)="signOut()">
+    <h1>Se déconnecter</h1>
+  </a>
 
 </div>
 

@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Vibration } from '@ionic-native/vibration/ngx';
 import { TapticEngine } from '@ionic-native/taptic-engine/ngx';
+import anime from 'animejs';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,8 @@ export class HomePage implements OnInit, AfterViewInit {
     private menu: MenuController,
     private vibration: Vibration,
     private taptic: TapticEngine,
-    private platform: Platform) { }
+    private platform: Platform
+    ) { }
 
   name = 'Mon Profil';
   userData;
@@ -38,6 +40,8 @@ export class HomePage implements OnInit, AfterViewInit {
   hasSchool = false;
   userPhoto = '';
   more = true;
+
+  moreAnime = false;
 
   async ngOnInit() {
     this.userData = this.getUserData();
@@ -58,6 +62,7 @@ export class HomePage implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     console.log('NEXT');
   }
+
 
 
   delay(ms: number) {
@@ -180,10 +185,54 @@ export class HomePage implements OnInit, AfterViewInit {
     });
   }
 
+  // goSettings() {
+  //   this.vibrate2();
+  //   this.home = false;
+  //   this.more = false;
+  // }
+
+
+
+
   goSettings() {
-    this.vibrate2();
-    this.home = false;
-    this.more = false;
+    if (this.moreAnime) {
+      // const el = document.getElementById('signOut');
+      // el.style.visibility = 'hidden';
+      this.moreAnime = false;
+      anime({
+        targets: '#test',
+        height: '24vh',
+        // height: '100vh',
+        duration: 450,
+        easing: 'easeOutQuint'
+      });
+      anime({
+        targets: '#moreBtn',
+        duration: 450,
+        easing: 'easeOutQuint',
+        left: '16vw',
+        top: '28.4vh'
+      });
+
+    } else {
+      // const el = document.getElementById('signOut');
+      // el.style.visibility = 'visible';
+      this.moreAnime = true;
+      anime({
+        targets: '#test',
+        height: '45vh',
+        // height: '100vh',
+        duration: 450,
+        easing: 'easeOutQuint'
+      });
+      anime({
+        targets: '#moreBtn',
+        duration: 450,
+        easing: 'easeOutQuint',
+        left: '70vw',
+        top: '50vh'
+      });
+    }
   }
 
 
@@ -199,4 +248,15 @@ export class HomePage implements OnInit, AfterViewInit {
       this.router.navigateByUrl('/signin-wenti');
     });
   }
+
+
+
+
+  // ANIMEEEEEE
+
+
+  
+
+
+
 }

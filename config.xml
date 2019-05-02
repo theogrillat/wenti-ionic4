@@ -3,7 +3,7 @@
     <name>Wenti</name>
     <description>Wenti</description>
     <author email="info@theogrillat.fr" href="https://theogrillat.fr/">Theo Grillat</author>
-    <content original-src="index.html" src="http://10.208.3.98:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -117,7 +117,6 @@
     </plugin>
     <plugin name="cordova-plugin-vibration" spec="3.1.0" />
     <plugin name="cordova-plugin-taptic-engine" spec="2.1.0" />
-    <allow-navigation href="http://10.208.3.98:8100" sessionid="cc598eb0" />
     <engine name="android" spec="7.1.4" />
     <engine name="ios" spec="4.5.5" />
 </widget>

@@ -58,7 +58,7 @@ export class AuthService {
   async presentToast(msg, type) {
     const toast = await this.toastController.create({
       message: msg,
-      duration: 3000,
+      duration: 2000,
       mode: 'ios',
       color: type
     });
@@ -68,6 +68,7 @@ export class AuthService {
 
   async signOut() {
     await this.afAuth.auth.signOut();
+    this.presentToast('Vous vous êtes bien déconnecté', 'success');
     return this.router.navigate(['/']);
   }
 
