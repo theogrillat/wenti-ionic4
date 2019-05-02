@@ -30,6 +30,11 @@
     src: url('./assets/fonts/roboto-black.woff2');
 }
 
+body {
+    padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
+    padding-top: env(safe-area-inset-top); /* iOS 11.2 */
+   }
+
 h1, h2, h3 {
     font-family: RobotoBlack;
 }
@@ -60,6 +65,14 @@ ion-content{
 
 .btnw5 {
     width: 70%;
+}
+
+.btnw6 {
+    display: block;
+    margin: auto;
+    width: 80%;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 
@@ -102,7 +115,7 @@ ion-content{
 }
 
 ion-menu {
-    --ion-background-color: rgba(255, 255, 255, 0.8);
+    --ion-background-color: rgba(255, 255, 255, 1);
     --ion-text-color: #020202;
   
     ion-toolbar {
@@ -222,7 +235,7 @@ ion-button {
 .menu-btn {
     position: fixed;
     left: 5%;
-    top: 15px;
+    top: 44px;
     width: 40px;
     height: 40px;
     font-size: 38px;
@@ -230,7 +243,7 @@ ion-button {
 
 .page-title {
     position: fixed;
-    top: 20px;
+    top: 50px;
     right: 5%;
 }
 
@@ -259,5 +272,24 @@ ion-button {
     border-radius: 8px;
 }
 
+.header {
+    --background: #67D3B9;
+    background-color: #67D3B9;
+    --color: #ffffff;
+    --border-width: 0px;
+}
 
+.header-title {
+    width: 74%;
+    margin-right: 12px;
+    font-size: 2em;
+    text-align: right;
+    font-weight: 600;
+}
+
+.burger {
+    padding: 10px;
+    padding-left: 12px;
+    height: 28px;
+}
 

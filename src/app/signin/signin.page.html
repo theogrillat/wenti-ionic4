@@ -1,41 +1,32 @@
-<div class="animated">
+<!-- <div class="animated">
     <div *ngIf="isLogging" class="loading">
         <h1>Chargement..</h1>
     </div>
-</div>
+</div> -->
 
-<div class="bgon grid-btn">
+<div class="bgon grid-btn animated">
+    <div class="card-top">
+        <div class="cont">
+            <div class="columns">
+                <div class="column has-text-centered">
+                    <h1 class="title signin-title">Connexion</h1>
+                    <p>Vous devez vous <span class="bold">connecter</span> pour pouvoir jouer à <span
+                            class="bold">Wenti</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <ion-grid padding>
         <div class="columns">
             <div class="column has-text-centered">
-                <h1 class="title">Connexion</h1>
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column has-text-centered">
-                <!-- <ion-button shape="round" mode="ios" size="large" color="danger" expand="full" (click)="google()">
-                    Google
-                </ion-button> -->
-                <a class="button cnct btnw3 is-danger is-rounded is-medium" (tap)="google()">Google</a>
+                <a class="button cnct btnw3 is-primary is-rounded is-medium" (tap)="wenti()"><h1>Compte Wenti</h1></a>
             </div>
             <div class="column has-text-centered">
-                <!-- <ion-button shape="round" mode="ios" size="large" color="danger" expand="full" (click)="google()">
-                    Google
-                </ion-button> -->
-                <a class="button cnct btnw3 is-link is-rounded is-medium" (tap)="facebook()">Facebook</a>
+                <a class="button cnct btnw3 is-danger is-rounded is-medium" (tap)="google()"><h1>Google</h1></a>
+            </div>
+            <div class="column has-text-centered">
+                <a class="button cnct btnw3 is-link is-rounded is-medium" (tap)="facebook()"><h1>Facebook</h1></a>
             </div>
         </div>
-        <!-- <ion-row justify-content-center>
-            <ion-col padding size="8">
-                <ion-button shape="round" mode="ios" size="large" color="fb" expand="full" (click)="facebook()">
-                    Facebook
-                </ion-button>
-            </ion-col>
-        </ion-row> -->
     </ion-grid>
 </div>
-
-
-<!-- <button class="btn primary block" (click)="gogo()">
-        <h1>GO</h1>
-</button> -->

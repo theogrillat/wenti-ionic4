@@ -66,9 +66,11 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
-  --ion-tab-bar-background: #67D3B9;
+  --ion-tab-bar-background: rbga(0,0,0,0);
   --ion-tab-bar-color: #ffffff;
   --ion-tab-bar-color-activated: #FFA845;
+
+  
   
   // –-ion-background-color:dimgrey;
 }

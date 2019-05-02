@@ -5,11 +5,11 @@
 
 
 .cont {
-    padding: 20px 40px 20px 40px;
+    padding: 20px 40px 3px 40px;
 }
 
 .card-top {
-    padding-top: 76px;
+    padding-top: 13px;
     color: #ffffff;
     background-color: #67D3B9;
     width: 100vw;
@@ -28,7 +28,7 @@
     margin-top: 26px;
     color: #4A4A4A;
     text-align: center;
-    font-family: Roboto;
+    font-family: RobotoLight;
     font-size: 1.5em;
     & .nbr {
         font-size: 2em;
@@ -116,7 +116,20 @@
     border: none;
     color: #ffffff;
     background-color: #FFA745;
-    top: 29vh;
+    // top: 33vh;
+    // top: calc(env(safe-area-inset-top)+29vh);
+}
+
+.more-round {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    .more-icon {
+        width: 40px;
+        display: block;
+        margin: auto;
+        margin-top: 23px;
+    }
 }
 
 
@@ -138,7 +151,7 @@
 .name {
     margin-bottom: 0px;
     font-size: 2.6em;
-    font-family: Roboto;
+    font-family: RobotoRegular;
     font-weight: 600;
     letter-spacing: 5px;
 }

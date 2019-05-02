@@ -21,7 +21,9 @@ export class OnboardingGuard implements CanActivate {
   ): Promise<boolean> {
     const isDone = await this.storage.get('onboardingDone');
     const uid = await this.auth.uid();
+    console.log(uid);
     const isLoggedIn = !!uid;
+    console.log('isLoggedIn: ' + isLoggedIn);
     // const isDone = false;
 
     if (!isDone) {
@@ -36,7 +38,7 @@ export class OnboardingGuard implements CanActivate {
         //   buttons: ['Se connecter']
         // });
         // await alert.present();
-        this.router.navigateByUrl('/signin');
+        this.router.navigateByUrl('/signin-wenti');
       }
     }
 

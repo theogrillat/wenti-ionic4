@@ -19,8 +19,13 @@
     bottom: 0px;
     left: 0px;
     width: 96%;
-    padding: 2%;
-    padding-bottom: 3%;
+    margin: 2%;
+    margin-bottom: 5%;
+    border: none;
+    border-radius: 40px;
+    height: 64px;
+    background-color: #67D3B9;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 ion-tab {
@@ -29,7 +34,6 @@ ion-tab {
 
 ion-tab-bar {
     border: none;
+    height: 100%;
     border-radius: 40px;
-    height: 64px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }

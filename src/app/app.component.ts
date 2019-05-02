@@ -17,6 +17,18 @@ export class AppComponent {
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+    platform.ready().then(() => {
+
+      if (this.platform.is('android')) {
+          console.log('running on Android device!');
+      }
+      if (this.platform.is('ios')) {
+          console.log('running on iOS device!');
+      }
+      if (this.platform.is('mobile')) {
+          console.log('running in a browser on mobile!');
+      }
+    });
   }
 
   initializeApp() {
@@ -26,3 +38,4 @@ export class AppComponent {
     });
   }
 }
+

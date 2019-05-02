@@ -1,3 +1,4 @@
+import { TapticEngine } from '@ionic-native/taptic-engine/ngx';
 import { DbService } from './../services/db.service';
 import {
   MenuController,
@@ -49,7 +50,8 @@ export class AboutPage implements OnInit {
     public menu: MenuController,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
-    private platform: Platform
+    private platform: Platform,
+    private taptic: TapticEngine
   ) { }
 
 
@@ -57,6 +59,22 @@ export class AboutPage implements OnInit {
     await this.platform.ready();
     await this.loadMap();
     await this.getScreens();
+  }
+
+  vibrate1() {
+    this.taptic.selection();
+  }
+
+  vibrate2() {
+    this.taptic.notification({
+      type: 'success'
+    });
+  }
+
+  vibrate3() {
+    this.taptic.impact({
+      style: 'heavy'
+    });
   }
 
   async getScreens() {
@@ -285,6 +303,7 @@ export class AboutPage implements OnInit {
   }
 
   async onButtonClick() {
+    this.vibrate2();
     this.map.clear();
 
     this.loading = await this.loadingCtrl.create({
@@ -305,11 +324,11 @@ export class AboutPage implements OnInit {
       });
 
       // add a marker
-      // let marker: Marker = this.map.addMarkerSync({
-      //   title: 'Vous êtes ici !',
-      //   position: location.latLng,
-      //   animation: GoogleMapsAnimation.BOUNCE
-      // });
+      let marker: Marker = this.map.addMarkerSync({
+        title: 'Vous êtes ici !',
+        position: location.latLng,
+        animation: GoogleMapsAnimation.BOUNCE
+      });
 
       this.screens.forEach(element => {
         console.log(location.latLng);
@@ -327,6 +346,7 @@ export class AboutPage implements OnInit {
 
       // If clicked it, display the alert
       marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+        this.vibrate2();
         this.showToast('clicked!');
       });
     })

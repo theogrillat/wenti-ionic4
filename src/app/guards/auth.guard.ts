@@ -30,7 +30,7 @@ export class AuthGuard implements CanActivate {
       // });
 
       // await alert.present();
-      this.router.navigateByUrl('/signin');
+      this.router.navigateByUrl('/signin-wenti');
     }
 
     return isLoggedIn;

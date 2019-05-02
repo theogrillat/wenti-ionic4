@@ -1,0 +1,6 @@
+{
+  "appId": "fr.wenti.app",
+  "appName": "Wenti",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

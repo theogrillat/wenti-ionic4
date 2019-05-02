@@ -1,3 +1,4 @@
+import { TapticEngine } from '@ionic-native/taptic-engine/ngx';
 import { MenuController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../services/db.service';
@@ -16,7 +17,8 @@ export class PlayPage implements OnInit {
     private db: DbService,
     private auth: AuthService,
     private afAuth: AngularFireAuth,
-    public menu: MenuController
+    public menu: MenuController,
+    private taptic: TapticEngine
   ) {}
 
   name = 'Jouer';
@@ -31,7 +33,24 @@ export class PlayPage implements OnInit {
     this.userData = this.getUserData();
   }
 
+  vibrate1() {
+    this.taptic.selection();
+  }
+
+  vibrate2() {
+    this.taptic.notification({
+      type: 'success'
+    });
+  }
+
+  vibrate3() {
+    this.taptic.impact({
+      style: 'heavy'
+    });
+  }
+
   openMenu() {
+    this.vibrate2();
     this.menu.open();
   }
 
@@ -40,6 +59,7 @@ export class PlayPage implements OnInit {
   }
 
   async updatePoints (bool) {
+    this.vibrate2();
     const addPoints = this.addPoints;
     const subPoints = this.addPoints;
     const currentUserPoints = this.userData.points;
@@ -60,6 +80,7 @@ export class PlayPage implements OnInit {
     this.db.updateAt(`users/${this.userData.uid}`, { points });
   }
   async updateMedals (bool) {
+    this.vibrate2();
     const addMedals = this.addMedals;
     const subMedals = this.addMedals;
     const currentUserMedals = this.userData.medals;
@@ -82,6 +103,7 @@ export class PlayPage implements OnInit {
 
 
   async updatePlay (bool) {
+    this.vibrate2();
     const addPlay = this.addPlay;
     const subPlay = this.addPlay;
     const currentUserPlay = this.userData.playNbr;
@@ -104,6 +126,7 @@ export class PlayPage implements OnInit {
 
 
 async updateWin (bool) {
+  this.vibrate2();
   const addWin = this.addWin;
   const subWin = this.addWin;
   const currentUserWin = this.userData.winNbr;
@@ -125,6 +148,7 @@ async updateWin (bool) {
 }
 
 async updateCash (bool) {
+  this.vibrate2();
   const addCashWin = this.addCashWin;
   const subCashWin = this.addCashWin;
   const currentUserCashWin = this.userData.cashWinNbr;

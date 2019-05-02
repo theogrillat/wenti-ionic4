@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Storage } from '@ionic/storage';
-import { Platform, LoadingController } from '@ionic/angular';
+import { Platform, LoadingController, ToastController } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Observable, of } from 'rxjs';
 import { switchMap, take, map } from 'rxjs/operators';
@@ -23,6 +23,7 @@ export class AuthService {
     private storage: Storage,
     private platform: Platform,
     private loadingController: LoadingController,
+    public toastController: ToastController,
     private gplus: GooglePlus,
     private fb: Facebook
   ) {
@@ -53,6 +54,18 @@ export class AuthService {
     return this.db.updateAt(path, data);
   }
 
+
+  async presentToast(msg, type) {
+    const toast = await this.toastController.create({
+      message: msg,
+      duration: 3000,
+      mode: 'ios',
+      color: type
+    });
+    toast.present();
+  }
+
+
   async signOut() {
     await this.afAuth.auth.signOut();
     return this.router.navigate(['/']);
@@ -69,7 +82,13 @@ export class AuthService {
   }
 
   async googleLogin() {
+    const loading = await this.loadingController.create({
+      spinner: 'bubbles',
+      duration: 10000,
+      mode: 'ios'
+    });
     try {
+      await loading.present();
       let user;
       if (this.platform.is('cordova')) {
         user = await this.nativeGoogleLogin();
@@ -78,23 +97,81 @@ export class AuthService {
         const provider = new auth.GoogleAuthProvider();
         user = await this.afAuth.auth.signInWithRedirect(provider);
       }
+      await loading.dismiss();
+      this.presentToast('Ravie de vous revoir !', 'success');
       return await this.updateUserData(user);
     } catch (err) {
       console.log(err);
+      await loading.dismiss();
     }
   }
 
+  async signInWithEmail(cred) {
+    return await this.afAuth.auth.signInWithEmailAndPassword(cred.email, cred.password).then(() => {
+      this.presentToast('Ravie de vous revoir !', 'success');
+      this.router.navigateByUrl('/');
+    })
+    .catch((err) => {
+      console.log(err.code + ' | ' + err.message);
+      let msg = '';
+      switch (err.code) {
+        case 'auth/wrong-password': {
+          msg = 'Le mot de passe est incorrect';
+          break;
+        }
+        case 'auth/user-not-found': {
+          msg = "Aucun compte n'a été trouvé, veuillez en créer un";
+          break;
+        }
+        case 'auth/invalid-email': {
+          msg = "L'email est incorrect";
+          break;
+        }
+        default: {
+          msg = 'Une erreur est survenue, veuillez réessayer ultérieurement';
+          break;
+        }
+      }
+      this.presentToast(msg, 'danger');
+    });
+  }
+
+  async signUpWithEmail(cred) {
+    let user;
+    console.log('Sign in with email');
+    user = await this.afAuth.auth.createUserWithEmailAndPassword(cred.email, cred.password);
+    console.log(user);
+    console.log(user.user);
+    return await this.updateUserData(user.user);
+  }
+
+  // emailSignUp(credentials: EmailPasswordCredentials): firebase.Promise<FirebaseAuthState> {
+  //   return this.af.auth.createUser(credentials)
+  //     .then(() => console.log("success"))
+  //     .catch(error => console.log(error));
+  // }
+
+
   async facebookLogin() {
+    const loading = await this.loadingController.create({
+      spinner: 'bubbles',
+      duration: 10000,
+      mode: 'ios'
+    });
     try {
+      await loading.present();
       let user;
       const loggingType = 'fb';
       user = await this.nativeFacebookLogin();
       // user.photoURL = await user.photoURL + '?height=500';
       // console.log(await user.photoURL);
       // this.db.updateAt(`users/${this.uid}`, {loggingType} );
+      await loading.dismiss();
+      this.presentToast('Ravie de vous revoir !', 'success');
       return await this.updateUserData(user);
     } catch (err) {
       console.log(err);
+      await loading.dismiss();
     }
   }
 
@@ -130,6 +207,22 @@ export class AuthService {
     // await loading.dismiss();
   }
 
+  // async emailSignUp(email, password) {
+  //   if (email && password) {
+  //     return await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  //   } else {
+  //     console.error('ERROR SINGNING UP');
+  //   }
+  // }
+
+  // emailSignUp(email: string, password: string) {
+  //   return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+  //     .then((user) => {
+  //       this.updateUserData(user);
+  //     })
+  //     .catch(error => console.log(error));
+  // }
+
   async nativeFacebookLogin(): Promise<any> {
     const fbUser = await this.fb.login(['public_profile', 'user_friends', 'email'])
       .then((response: FacebookLoginResponse) => {
@@ -140,6 +233,9 @@ export class AuthService {
         auth.FacebookAuthProvider.credential(fbUser.accessToken)
       );
   }
+
+
+
 
   uid() {
     return this.user$

@@ -22,19 +22,19 @@
             <ion-icon name="md-basket"></ion-icon>
           </ion-tab-button> -->
 
-      <ion-tab-button tab="home" href="/tabs/(home:home)">
+      <ion-tab-button tab="home" (tap)="tabHome()" href="/tabs/(home:home)">
         <ion-icon name="md-person"></ion-icon>
         <!-- <ion-label>Home</ion-label> -->
       </ion-tab-button>
 
 
-      <ion-tab-button tab="play" href="/tabs/(play:play)">
-        <ion-icon name="md-list-box"></ion-icon>
+      <ion-tab-button tab="play" (tap)="tabPlay()" href="/tabs/(play:play)">
+        <ion-icon src="../../assets/img/play.svg"></ion-icon>
         <!-- <ion-label>Home</ion-label> -->
       </ion-tab-button>
 
-      <ion-tab-button tab="about" href="/tabs/(about:about)">
-        <ion-icon name="md-information-circle"></ion-icon>
+      <ion-tab-button tab="about" (tap)="tabAbout()" href="/tabs/(about:about)">
+        <ion-icon src="../../assets/img/medal.svg"></ion-icon>
         <!-- <ion-label>About</ion-label> -->
       </ion-tab-button>
 

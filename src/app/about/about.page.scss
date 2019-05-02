@@ -4,11 +4,10 @@
 }
 
 .cont {
-    padding: 20px 40px 20px 40px;
+    padding: 2px 40px 20px 40px;
 }
 
 .card-top {
-    padding-top: 50px;
     color: #ffffff;
     background-color: #67D3B9;
     width: 100vw;
@@ -30,8 +29,8 @@
 #map_canvas {
     z-index: 2;
     position: absolute;
-    top: 15vh;
+    top: 17vh;
     width: 100vw;
-    height: 85vh;
-  }
+    height: 83vh;
+}
 

@@ -1,3 +1,4 @@
+import { Vibration } from '@ionic-native/vibration/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { MenuComponent } from './menu/menu.component';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { TapticEngine } from '@ionic-native/taptic-engine/ngx';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent],
@@ -46,7 +48,9 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     InAppBrowser,
     Geolocation,
-    NativeGeocoder
+    NativeGeocoder,
+    Vibration,
+    TapticEngine
   ],
   bootstrap: [AppComponent]
 })

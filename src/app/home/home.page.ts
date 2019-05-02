@@ -1,4 +1,4 @@
-import { MenuController } from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { DbService } from './../services/db.service';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
@@ -6,6 +6,8 @@ import { LoginComponent } from '../shared/login/login.component';
 import { ProfileComponent } from '../shared/profile/profile.component';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { Vibration } from '@ionic-native/vibration/ngx';
+import { TapticEngine } from '@ionic-native/taptic-engine/ngx';
 
 @Component({
   selector: 'app-home',
@@ -19,9 +21,12 @@ export class HomePage implements OnInit, AfterViewInit {
     private db: DbService,
     private auth: AuthService,
     private router: Router,
-    private menu: MenuController) { }
+    private menu: MenuController,
+    private vibration: Vibration,
+    private taptic: TapticEngine,
+    private platform: Platform) { }
 
-  pageName = 'Mon Profil';
+  name = 'Mon Profil';
   userData;
   home = true;
   schoolForm = false;
@@ -32,6 +37,7 @@ export class HomePage implements OnInit, AfterViewInit {
   userState;
   hasSchool = false;
   userPhoto = '';
+  more = true;
 
   async ngOnInit() {
     this.userData = this.getUserData();
@@ -44,6 +50,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
 
   openMenu() {
+    this.vibrate2();
     this.menu.open();
   }
 
@@ -59,6 +66,8 @@ export class HomePage implements OnInit, AfterViewInit {
 
 
   async checkPhotoURL() {
+
+
     for (let i = 0; i < 3000; i++) {
       const test = await this.userData.photoURL;
       console.log(test);
@@ -69,13 +78,21 @@ export class HomePage implements OnInit, AfterViewInit {
       console.log('iteration: ' + i);
       await this.delay(10);
     }
-    const oldURL = await this.userData.photoURL;
+
     let newURL = '';
-    if (await oldURL.includes('/s96')) {
-      newURL = await oldURL.split('/s96').join('/s500');
+
+    if (await this.userData.photoURL === null || await this.userData.photoURL === undefined) {
+      newURL = '../../assets/img/avatar.png';
     } else {
-      newURL = await oldURL + '?height=500';
+      const oldURL = await this.userData.photoURL;
+      if (await oldURL.includes('/s96')) {
+        newURL = await oldURL.split('/s96').join('/s500');
+      } else {
+        newURL = await oldURL + '?height=500';
+      }
     }
+
+
     console.log(await newURL);
     return await newURL;
   }
@@ -85,6 +102,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   addSchool(bool) {
+    this.vibrate2();
     this.setState();
     if (bool) {
       this.schoolForm = true;
@@ -103,6 +121,7 @@ export class HomePage implements OnInit, AfterViewInit {
 
 
   async validate() {
+    this.vibrate2();
     console.log(this.schoolFinal);
     const school = this.schoolFinal;
     const err = 'errrrr';
@@ -116,6 +135,7 @@ export class HomePage implements OnInit, AfterViewInit {
   }
 
   async setState() {
+    console.log('SET-STATE');
     console.log(await this.userData.school);
     if (await this.userData.school) {
       this.hasSchool = true;
@@ -144,19 +164,39 @@ export class HomePage implements OnInit, AfterViewInit {
   .catch(console.error);
   }
 
+  vibrate1() {
+    this.taptic.selection();
+  }
+
+  vibrate2() {
+    this.taptic.notification({
+      type: 'success'
+    });
+  }
+
+  vibrate3() {
+    this.taptic.impact({
+      style: 'heavy'
+    });
+  }
 
   goSettings() {
+    this.vibrate2();
     this.home = false;
+    this.more = false;
   }
 
 
   goBack() {
+    this.vibrate2();
     this.home = true;
+    this.more = true;
   }
 
   signOut() {
+    this.vibrate2();
     this.auth.signOut().then(() => {
-      this.router.navigateByUrl('/signin');
+      this.router.navigateByUrl('/signin-wenti');
     });
   }
 }

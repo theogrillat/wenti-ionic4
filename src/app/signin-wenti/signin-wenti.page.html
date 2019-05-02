@@ -1,0 +1,65 @@
+<div class="bgon animated">
+  <ion-content padding>
+
+    <!-- <div class="back" (tap)="back()"><h1>B</h1></div> -->
+
+    <div *ngIf="connectForm" class="connect animated">
+        <h1 class="title signin-title">Connexion</h1>
+        <p>Vous devez vous <span class="bold">connecter</span> pour pouvoir jouer à <span class="bold">Wenti</span></p>
+        <!-- <h1 class="title">Entrez vos identifiants</h1> -->
+    
+        <ion-input required type="email" placeholder="Email" [(ngModel)]="emailC" (ionChange)="check()"></ion-input>
+        <ion-input required type="password" placeholder="Mot de passe" [(ngModel)]="mdpC"></ion-input>
+    
+        <!-- <div class="column has-text-centered"> -->
+            <!-- <a class="button cnct btnw6 is-primary is-rounded is-medium" (tap)="connect()">Connexion</a> -->
+            <a class="button-signin" (tap)="connect()"><h1>Connexion</h1></a>
+        <!-- </div> -->
+        <div class="columns is-mobile">
+          <div class="column">
+            <div (tap)="google()" class="socialBtn googleBtn">
+              <img class="socialIcon" src="../../assets/img/google.svg" alt="google">
+            </div>
+          </div>
+          <div class="column">
+            <div (tap)="facebook()" class="socialBtn facebookBtn">
+                <img class="socialIcon" src="../../assets/img/facebook.svg" alt="facebook">
+            </div>
+          </div>
+        </div>
+        <p class="link" (tap)="toggleForm('signup')">Créer un compte</p>
+    </div>
+
+    <div *ngIf="signupForm" class="signup animated">
+        <h1 class="title signup-title">Créer un compte</h1>
+        <p>Vous devez <span class="bold">avoir un compte</span> pour pouvoir jouer à <span class="bold">Wenti</span></p>
+        <!-- <h1 class="title">Entrez vos identifiants</h1> -->
+
+        <ion-input required type="email" placeholder="Pseudo" [(ngModel)]="userTag" (ionChange)="check()"></ion-input>
+        <ion-input required type="email" placeholder="Email" [(ngModel)]="emailS" (ionChange)="check()"></ion-input>
+        <ion-input required type="password" placeholder="Mot de passe" [(ngModel)]="mdpSOne"></ion-input>
+        <ion-input required type="password" placeholder="Répétez le mot de passe" [(ngModel)]="mdpSTwo"></ion-input>
+    
+        <!-- <div class="column has-text-centered">
+            <a class="button cnct btnw3 is-primary is-rounded is-medium" (tap)="signUp()">Créer</a>
+        </div> -->
+        <a class="button-signin" (tap)="connect()"><h1>Créer</h1></a>
+
+        <div class="columns is-mobile">
+          <div class="column">
+            <div (tap)="google()" class="socialBtn googleBtn">
+              <img class="socialIcon" src="../../assets/img/google.svg" alt="google">
+            </div>
+          </div>
+          <div class="column">
+            <div (tap)="facebook()" class="socialBtn facebookBtn">
+                <img class="socialIcon" src="../../assets/img/facebook.svg" alt="facebook">
+            </div>
+          </div>
+        </div>
+
+        <p class="link" (tap)="toggleForm('connect')">Se connecter à un compte existant</p>
+    </div>
+
+  </ion-content>
+</div>

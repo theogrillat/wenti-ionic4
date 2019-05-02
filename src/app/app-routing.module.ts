@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [OnboardingGuard] },
   { path: 'onboarding', loadChildren: './onboarding/onboarding.module#OnboardingPageModule' },
   { path: 'signin', loadChildren: './signin/signin.module#SigninPageModule' },
+  { path: 'signin-wenti', loadChildren: './signin-wenti/signin-wenti.module#SigninWentiPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

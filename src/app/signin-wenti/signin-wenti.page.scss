@@ -1,0 +1,144 @@
+.bgon {
+    // background-image: url('../../assets/img/bgimg.jpg');
+    // background-position: center;
+    // background-size: cover;
+    // width: 100%;
+    height: 100%;
+    background-color: #f1f6f5;
+}
+
+.card-top {
+    padding-top: 4vh;
+    color: #ffffff;
+    background-color: #67D3B9;
+    width: 100vw;
+    height: 19vh;
+    border-radius: 0px 0px 42px 42px;
+    box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.15);
+    margin-bottom: 17vh;
+}
+
+p {
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 22px;
+}
+
+.button {
+    margin-top: 20px;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.text-btn-color {
+    color: white;
+}
+
+.loading {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.9);
+    & h1 {
+        text-align: center;
+        color: #ffffff;
+        margin-top: 47vh;
+        font-size: 2em;
+    }
+}
+
+.signin-title {
+    color: #4a4a4a;
+    font-size: 3em;
+    margin-top: 13vh;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.signup-title {
+    color: #4a4a4a;
+    font-size: 3em;
+    margin-top: 5vh;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+ion-input {
+    --padding-start: 23px;
+    background-color: #ffffff;
+    width: 80%;
+    height: 60px;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 100px;
+    font-size: 1.3em; 
+}
+
+.back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 60px;
+    width: 60px;
+    border-radius: 100px;
+    background-color: #FFA845;
+}
+
+.link {
+    margin-top: 40px;
+    text-decoration: underline;
+    color: #5f5f5f;
+    width: 60vw;
+}
+
+.socialBtn {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: auto;
+    border-radius: 100px;
+}
+
+.socialIcon {
+    fill: #ffffff;
+    transform: scale(0.7);
+}
+
+.googleBtn {
+    background-color: #cc5541;
+    margin-right: 0px;
+}
+
+.facebookBtn {
+    background-color: #3B5998;
+    margin-left: 0px;
+}
+
+
+.button-signin {
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    height: 60px;
+    background-color: #67D3B9;
+    border-radius: 100px;
+    margin-bottom: 50px;
+    display: block;
+    width: 60%;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    h1 {
+        line-height: 60px;
+        font-size: 1.5em;
+    }
+}
+
+// .native-input {
+//     padding-left: 20px !important;
+// }
