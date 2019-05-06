@@ -16,7 +16,19 @@
 <div class="bgon">
 
   <div class="card-full animated">
-    <ion-card-content>
+      <h1 class="title" *ngFor="let item of quest" >{{item.rep1}}</h1>
+  </div>
+  <div class="card-full animated">
+      <h1 class="title" *ngFor="let item of quest" >{{item.rep2}}</h1>
+  </div>
+  <div class="card-full animated">
+      <h1 class="title" *ngFor="let item of quest" >{{item.rep3}}</h1>
+  </div>
+
+  <div class="card-full animated">
+      <h1 class="title" *ngFor="let item of quest" >{{item.rep4}}</h1>
+  </div>
+    <!-- <ion-card-content>
       Points: {{ userData.points || 0 }}<br>
       Parties: {{ userData.playNbr || 0 }}<br>
       Victoires: {{ userData.winNbr || 0 }}<br>
@@ -67,7 +79,7 @@
       <div class="column has-text-centered">
         <a class="button cnct btnw5 is-danger is-rounded is-medium" (tap)="updateMedals(false)"><h1>Retirer<br> {{ addMedals }} Medals</h1></a>
       </div>
-    </div>
+    </div> -->
 
 
  
@@ -112,8 +124,6 @@
             <h1>Retirer {{ addMedals }} Medals</h1>
           </button>
         </ion-card-content> -->
-
-  </div>
 </div>
 
 <!-- </ion-content> -->

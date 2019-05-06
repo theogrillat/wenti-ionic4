@@ -28,9 +28,11 @@ export class PlayPage implements OnInit {
   addWin = 1;
   addCashWin = 20;
   addMedals = 1;
+  quest;
 
   ngOnInit() {
-    this.userData = this.getUserData();
+    // this.userData = this.getUserData();
+    this.quest = this.getItems();
   }
 
   vibrate1() {
@@ -53,6 +55,19 @@ export class PlayPage implements OnInit {
     this.vibrate2();
     this.menu.open();
   }
+
+
+  async getItems() {
+    return await this.db.collection$('questions', ref =>
+    ref
+      .where('isTheOne', '==', true)
+      .limit(10)
+    ).subscribe(val => {
+      this.quest = val;
+      console.log(val);
+      console.log(this.quest);
+    });
+}
 
   async getUserData () {
     return await this.auth.user$.subscribe(val => this.userData = val);
